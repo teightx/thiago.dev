@@ -8,7 +8,7 @@ import ProfileImage from './ProfileImage'
 
 const technologies = [
   { name: 'Salesforce', icon: '/thiago.dev/tech/salesforce.png' },
-  { name: 'JavaScript', icon: '/thiago.dev/tech/javascript.png' },
+  { name: 'JavaScript', icon: '/thiago.dev/tech/JavaScript.png' },
   { name: 'Apex', icon: '/thiago.dev/tech/apex.png' },
   { name: 'LWC', icon: '/thiago.dev/tech/lwc.png' },
   { name: 'React', icon: '/thiago.dev/tech/react.png' },
