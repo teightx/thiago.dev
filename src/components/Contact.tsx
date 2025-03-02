@@ -1,0 +1,72 @@
+'use client'
+
+import { FaGithub, FaLinkedin, FaSalesforce, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
+import { useTheme } from '@/context/ThemeContext'
+import { translations } from '@/translations'
+
+export default function Contact() {
+  const { language } = useTheme()
+  const t = translations[language]
+
+  return (
+    <section id="contact" className="py-20">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+          {t.contact.title}
+        </h2>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-gray-400 text-center text-lg mb-8">
+            {language === 'en' 
+              ? "I'm always interested in new projects and opportunities. Feel free to get in touch!"
+              : "Estou sempre interessado em novos projetos e oportunidades. Sinta-se à vontade para entrar em contato!"}
+          </p>
+          <div className="flex flex-wrap justify-center gap-8">
+            <a
+              href="https://github.com/thiagosilva-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+            >
+              <FaGithub className="text-2xl" />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/thiago-santos-dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+            >
+              <FaLinkedin className="text-2xl" />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://trailblazer.me/id/thiagosilva-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+            >
+              <FaSalesforce className="text-2xl" />
+              <span>Trailhead</span>
+            </a>
+            <a
+              href="mailto:teightx@icloud.com"
+              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+            >
+              <FaEnvelope className="text-2xl" />
+              <span>teightx@icloud.com</span>
+            </a>
+            <a
+              href="https://wa.me/12016865610"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+            >
+              <FaWhatsapp className="text-2xl" />
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+} 
