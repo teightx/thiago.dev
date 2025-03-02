@@ -8,7 +8,7 @@ export default function ProfileImage() {
       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500 to-red-500 p-1">
         <div className="w-full h-full rounded-full overflow-hidden">
           <Image
-            src="/profile.jpg"
+            src="/thiago.dev/profile.jpg"
             alt="Thiago Santos"
             width={256}
             height={256}

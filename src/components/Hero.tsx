@@ -7,14 +7,14 @@ import { translations } from '@/translations'
 import ProfileImage from './ProfileImage'
 
 const technologies = [
-  { name: 'Salesforce', icon: '/tech/salesforce.png' },
-  { name: 'JavaScript', icon: '/tech/javascript.png' },
-  { name: 'Apex', icon: '/tech/apex.png' },
-  { name: 'LWC', icon: '/tech/lwc.png' },
-  { name: 'React', icon: '/tech/react.png' },
-  { name: 'Angular', icon: '/tech/angular.png' },
-  { name: 'Java', icon: '/tech/java.png' },
-  { name: 'Node', icon: '/tech/node.png' }
+  { name: 'Salesforce', icon: '/thiago.dev/tech/salesforce.png' },
+  { name: 'JavaScript', icon: '/thiago.dev/tech/javascript.png' },
+  { name: 'Apex', icon: '/thiago.dev/tech/apex.png' },
+  { name: 'LWC', icon: '/thiago.dev/tech/lwc.png' },
+  { name: 'React', icon: '/thiago.dev/tech/react.png' },
+  { name: 'Angular', icon: '/thiago.dev/tech/angular.png' },
+  { name: 'Java', icon: '/thiago.dev/tech/java.png' },
+  { name: 'Node', icon: '/thiago.dev/tech/node.png' }
 ]
 
 export default function Hero() {
