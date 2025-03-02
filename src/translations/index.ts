@@ -7,6 +7,8 @@ export const translations = {
       contact: 'Contact',
     },
     hero: {
+      name: 'Thiago Santos',
+      role: 'Senior Salesforce Developer',
       title: 'I transform ideas into',
       highlight: 'solutions!',
       description: 'Salesforce Developer specialized in creating scalable and innovative solutions. With experience in Apex, LWC, and AI integrations, I transform challenges into opportunities.',
@@ -83,6 +85,8 @@ export const translations = {
       contact: 'Contato',
     },
     hero: {
+      name: 'Thiago Santos',
+      role: 'Desenvolvedor Salesforce Pleno',
       title: 'Eu transformo ideias em',
       highlight: 'soluções!',
       description: 'Desenvolvedor Salesforce especializado em criar soluções escaláveis e inovadoras. Com experiência em Apex, LWC e integrações com IA, transformo desafios em oportunidades.',

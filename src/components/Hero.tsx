@@ -31,10 +31,10 @@ export default function Hero() {
           <div className="w-full text-center">
             <div className="mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-200 mb-2">
-                Thiago Santos
+                {t.hero.name}
               </h2>
               <p className="text-lg md:text-xl text-gray-400">
-                Desenvolvedor Salesforce Pleno
+                {t.hero.role}
               </p>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
