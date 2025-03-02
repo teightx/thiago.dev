@@ -29,8 +29,8 @@ export default function Hero() {
             <ProfileImage />
           </div>
           <div className="w-full text-center">
-            <div className="mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-200 mb-2">
+            <div className="mb-10">
+              <h2 className="text-3xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                 {t.hero.name}
               </h2>
               <p className="text-lg md:text-xl text-gray-400">
