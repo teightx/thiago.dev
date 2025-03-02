@@ -29,6 +29,14 @@ export default function Hero() {
             <ProfileImage />
           </div>
           <div className="w-full text-center">
+            <div className="mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-200 mb-2">
+                Thiago Santos
+              </h2>
+              <p className="text-lg md:text-xl text-gray-400">
+                Desenvolvedor Salesforce Pleno
+              </p>
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t.hero.title}{' '}
               <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
