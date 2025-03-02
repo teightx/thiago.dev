@@ -44,10 +44,10 @@ Meu portfólio profissional desenvolvido com tecnologias modernas e boas prátic
 
 ```bash
 # Clone o repositório
-git clone https://github.com/teightx/Thiago.Dev.git
+git clone https://github.com/teightx/thiago.dev.git
 
 # Entre na pasta
-cd Thiago.Dev
+cd thiago.dev
 
 # Instale as dependências
 npm install
