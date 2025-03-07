@@ -59,7 +59,7 @@ html {
 
 /* Card and text styles */
 .card-light {
-  @apply bg-white/80 border border-gray-200;
+  @apply bg-white/80 backdrop-blur-sm border border-gray-200;
 }
 
 .card-dark {
