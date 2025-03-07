@@ -4,7 +4,7 @@
 
 :root {
   --foreground: #171717;
-  --background: #0f172a;
+  --background: #171717;
 }
 
 [data-theme='dark'] {
@@ -63,7 +63,7 @@ html {
 }
 
 .card-dark {
-  @apply bg-black/40 border border-gray-800;
+  @apply bg-black/40 backdrop-blur-sm border border-gray-800;
 }
 
 .text-primary-light {
