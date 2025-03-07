@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
           <div className="w-full text-center">
             <div className="mb-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent leading-relaxed">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent leading-relaxed tracking-wide">
                 {t.hero.name}
               </h2>
               <p className="text-lg md:text-xl text-gray-400">
@@ -54,7 +54,7 @@ export default function Hero() {
                 {t.hero.buttons.contact}
               </Link>
               <a
-                href="/cv.pdf"
+                href="/thiago.dev/cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500/10 transition-colors text-center"

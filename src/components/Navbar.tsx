@@ -24,9 +24,7 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a
-          href="https://tiago.dev"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#"
           className="flex items-center space-x-2"
         >
           <span className="text-xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">

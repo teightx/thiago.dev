@@ -58,7 +58,7 @@ npm run dev
 
 ## 📫 Contato
 
-- LinkedIn: [Thiago Santos](https://www.linkedin.com/in/thiago-santos-dev)
+- LinkedIn: [Thiago Santos](https://linkedin.com/in/teight)
 - GitHub: [@teightx](https://github.com/teightx)
 
 ## 📝 Licença

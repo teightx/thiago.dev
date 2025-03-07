@@ -17,28 +17,28 @@ const experiences: Experience[] = [
   {
     key: 'engineerAccess',
     period: "Nov 2024 - Present",
-    location: "Remote / New York City",
+    location: "New York City",
     type: "Remote",
     technologies: "Apex, LWC, Flow Builder, Marketing Cloud, Service Cloud"
   },
   {
     key: 'capgemini',
     period: "Jan 2022 - Nov 2024",
-    location: "Remote",
+    location: "",
     type: "Remote",
     technologies: "Apex, LWC, Visualforce, Flow Builder, Jira, Financial Cloud"
   },
   {
     key: 'vibbra',
     period: "Apr 2021 - Dec 2021",
-    location: "Remote",
+    location: "",
     type: "Remote",
     technologies: "Java, JavaScript, AngularJS, MySQL"
   },
   {
     key: 'sinai',
     period: "Jun 2018 - Jan 2021",
-    location: "Remote",
+    location: "",
     type: "Remote",
     technologies: "JavaScript, AngularJS, MySQL"
   }

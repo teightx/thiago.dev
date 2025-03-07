@@ -22,7 +22,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-wrap justify-center gap-8">
             <a
-              href="https://github.com/thiagosilva-dev"
+              href="https://github.com/teightx"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
@@ -31,7 +31,7 @@ export default function Contact() {
               <span>GitHub</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/thiago-santos-dev/"
+              href="https://linkedin.com/in/teight"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
@@ -40,7 +40,7 @@ export default function Contact() {
               <span>LinkedIn</span>
             </a>
             <a
-              href="https://trailblazer.me/id/thiagosilva-dev"
+              href="https://salesforce.com/trailblazer/teightx"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"

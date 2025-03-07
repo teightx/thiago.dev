@@ -100,7 +100,7 @@ export default function Trailhead() {
           className="mt-8 text-center"
         >
           <a
-            href="https://trailblazer.me/id/thiagodev"
+            href="https://salesforce.com/trailblazer/teightx"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-primary text-white rounded-full hover:opacity-90 transition-opacity"
