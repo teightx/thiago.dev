@@ -49,7 +49,7 @@ export default function Experience() {
   const t = translations[language]
 
   return (
-    <section id="experience" className="py-20 bg-black/30">
+    <section id="experience" className="py-20">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
           {t.experience.title}
@@ -60,15 +60,15 @@ export default function Experience() {
             return (
               <div
                 key={exp.key}
-                className="bg-black/40 backdrop-blur-sm rounded-xl p-6 hover:bg-black/50 transition-colors"
+                className="card-dark dark:card-dark backdrop-blur-sm rounded-xl p-6 hover:bg-black/50 dark:hover:bg-black/50 transition-colors"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-white">{position.title}</h3>
-                    <p className="text-gray-400">{position.company}</p>
+                    <h3 className="text-xl font-semibold text-primary-light dark:text-primary-dark">{position.title}</h3>
+                    <p className="text-secondary-light dark:text-secondary-dark">{position.company}</p>
                   </div>
                   <div className="flex items-center mt-2 md:mt-0">
-                    <span className="text-gray-400">{exp.period}</span>
+                    <span className="text-secondary-light dark:text-secondary-dark">{exp.period}</span>
                     <div className="ml-4 flex gap-2">
                       <span className="px-3 py-1 text-sm bg-blue-500/20 text-blue-400 rounded-full">
                         {exp.type}
@@ -81,15 +81,15 @@ export default function Experience() {
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-300 mb-4">{position.description}</p>
-                <ul className="list-disc list-inside space-y-2 text-gray-400 mb-4">
+                <p className="text-secondary-light dark:text-secondary-dark mb-4">{position.description}</p>
+                <ul className="list-disc list-inside space-y-2 text-secondary-light dark:text-secondary-dark mb-4">
                   {position.highlights.map((highlight: string, highlightIndex: number) => (
                     <li key={highlightIndex}>{highlight}</li>
                   ))}
                 </ul>
                 <div className="text-sm">
                   <span className="font-semibold text-orange-500">{t.experience.technologies}:</span>{' '}
-                  <span className="text-gray-300">{exp.technologies}</span>
+                  <span className="text-secondary-light dark:text-secondary-dark">{exp.technologies}</span>
                 </div>
               </div>
             )

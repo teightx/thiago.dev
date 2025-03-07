@@ -4,12 +4,17 @@
 
 :root {
   --foreground: #171717;
-  --background: #ffffff;
+  --background: #0f172a;
 }
 
 [data-theme='dark'] {
   --foreground: #ffffff;
-  --background: #171717;
+  --background: #0f172a;
+}
+
+[data-theme='light'] {
+  --foreground: #171717;
+  --background: #ffffff;
 }
 
 body {
@@ -50,4 +55,29 @@ html {
 /* Theme transitions */
 .theme-transition {
   transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Card and text styles */
+.card-light {
+  @apply bg-white/80 border border-gray-200;
+}
+
+.card-dark {
+  @apply bg-black/40 border border-gray-800;
+}
+
+.text-primary-light {
+  @apply text-gray-900;
+}
+
+.text-primary-dark {
+  @apply text-white;
+}
+
+.text-secondary-light {
+  @apply text-gray-600;
+}
+
+.text-secondary-dark {
+  @apply text-gray-400;
 } 

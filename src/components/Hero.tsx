@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
           <div className="w-full text-center">
             <div className="mb-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent leading-relaxed tracking-wide">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent leading-relaxed tracking-wide py-1">
                 {t.hero.name}
               </h2>
               <p className="text-lg md:text-xl text-gray-400">

@@ -5,6 +5,12 @@ import { translations } from '@/translations'
 
 const projects = [
   {
+    title: 'Portfolio Next.js',
+    description: 'Portfólio profissional desenvolvido com tecnologias modernas como Next.js, TypeScript e Tailwind CSS. Inclui tema escuro, internacionalização e animações suaves.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    link: 'https://github.com/teightx/Thiago.Dev'
+  },
+  {
     title: 'MyMoneyBox Flutter',
     description: 'Aplicativo de finanças pessoais desenvolvido em Flutter, focado em simplicidade e eficiência. Funciona offline com recursos como dashboard financeiro, histórico de transações e gráficos interativos.',
     technologies: ['Flutter', 'Dart', 'Hive', 'Provider'],
@@ -68,12 +74,12 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-black/40 backdrop-blur-sm rounded-xl p-6 hover:bg-black/50 transition-colors"
+              className="card-light dark:card-dark backdrop-blur-sm rounded-xl p-6 hover:bg-white/90 dark:hover:bg-black/50 transition-colors"
             >
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-xl font-semibold text-primary-light dark:text-primary-dark mb-3">
                 {project.title}
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-secondary-light dark:text-secondary-dark mb-4">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
