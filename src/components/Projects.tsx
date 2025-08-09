@@ -75,7 +75,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white/6 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors shadow-glow"
+              className="group bg-white/6 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 shadow-glow hover:-translate-y-1 hover:scale-[1.01]"
             >
               <h3 className="text-xl font-semibold text-white mb-3">
                 {project.title}
@@ -87,7 +87,7 @@ export default function Projects() {
                 {project.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
+                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 group-hover:bg-primary/15"
                   >
                     {tech}
                   </span>

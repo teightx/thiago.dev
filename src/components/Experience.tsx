@@ -61,7 +61,7 @@ export default function Experience() {
             return (
               <div
                 key={exp.key}
-                className="bg-white/6 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors shadow-glow"
+                className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 shadow-glow hover:-translate-y-1 hover:scale-[1.005]"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
