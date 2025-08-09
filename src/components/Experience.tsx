@@ -51,7 +51,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           {t.experience.title}
         </h2>
         <div className="space-y-8">
@@ -70,11 +70,11 @@ export default function Experience() {
                   <div className="flex items-center mt-2 md:mt-0">
                     <span className="text-gray-600 dark:text-gray-300">{exp.period}</span>
                     <div className="ml-4 flex gap-2">
-                      <span className="px-3 py-1 text-sm bg-orange-500/10 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400 rounded-full">
+                      <span className="px-3 py-1 text-sm bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary rounded-full">
                         {exp.type}
                       </span>
                       {exp.location && (
-                        <span className="px-3 py-1 text-sm bg-orange-500/10 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400 rounded-full">
+                        <span className="px-3 py-1 text-sm bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary rounded-full">
                           {exp.location}
                         </span>
                       )}
@@ -88,7 +88,7 @@ export default function Experience() {
                   ))}
                 </ul>
                 <div className="text-sm">
-                  <span className="font-semibold text-orange-500">{t.experience.technologies}:</span>{' '}
+                  <span className="font-semibold text-primary">{t.experience.technologies}:</span>{' '}
                   <span className="text-gray-600 dark:text-gray-300">{exp.technologies}</span>
                 </div>
               </div>

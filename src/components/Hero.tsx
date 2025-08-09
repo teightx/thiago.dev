@@ -30,16 +30,16 @@ export default function Hero() {
           </div>
           <div className="w-full text-center">
             <div className="mb-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent leading-relaxed tracking-wide py-1">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-relaxed tracking-wide py-1">
                 {t.hero.name}
               </h2>
               <p className="text-lg md:text-xl text-gray-400">
-                {t.hero.role}
+                {language === 'en' ? 'Senior Salesforce Developer' : 'Desenvolvedor Salesforce Sênior'}
               </p>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t.hero.title}{' '}
-              <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 {t.hero.highlight}
               </span>
             </h1>
@@ -49,7 +49,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#contact"
-                className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full hover:opacity-90 transition-opacity text-center"
+                className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:opacity-90 transition-opacity text-center"
               >
                 {t.hero.buttons.contact}
               </Link>
@@ -57,7 +57,7 @@ export default function Hero() {
                 href="/thiago.dev/cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500/10 transition-colors text-center"
+                className="px-8 py-3 border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors text-center"
               >
                 {t.hero.buttons.download}
               </a>

@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           {t.contact.title}
         </h2>
         <div className="max-w-3xl mx-auto">
@@ -25,16 +25,16 @@ export default function Contact() {
               href="https://github.com/teightx"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+              className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
             >
               <FaGithub className="text-2xl" />
               <span>GitHub</span>
             </a>
             <a
-              href="https://linkedin.com/in/teight"
+              href="https://www.linkedin.com/in/thiagosantosdev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+              className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
             >
               <FaLinkedin className="text-2xl" />
               <span>LinkedIn</span>
@@ -43,14 +43,14 @@ export default function Contact() {
               href="https://salesforce.com/trailblazer/teightx"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+              className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
             >
               <FaSalesforce className="text-2xl" />
               <span>Trailhead</span>
             </a>
             <a
               href="mailto:teightx@icloud.com"
-              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+              className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
             >
               <FaEnvelope className="text-2xl" />
               <span>teightx@icloud.com</span>
@@ -59,7 +59,7 @@ export default function Contact() {
               href="https://wa.me/12016865610"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-300 hover:text-orange-500 transition-colors"
+              className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
             >
               <FaWhatsapp className="text-2xl" />
               <span>WhatsApp</span>

@@ -8,10 +8,10 @@ export const translations = {
     },
     hero: {
       name: 'Thiago Santos',
-      role: 'Mid-Level Salesforce Developer',
+      role: 'Senior Salesforce Developer',
       title: 'I transform ideas into',
       highlight: 'solutions!',
-      description: 'Salesforce Developer specialized in creating scalable and innovative solutions. With experience in Apex, LWC, and AI integrations, I transform challenges into opportunities.',
+      description: 'Senior Salesforce Developer specialized in scalable architectures, Apex, LWC and AI-powered integrations. I deliver measurable impact with quality, performance and DX.',
       buttons: {
         contact: 'Get In Touch',
         download: 'Download CV',
@@ -28,14 +28,14 @@ export const translations = {
       technologies: 'Technologies',
       positions: {
         engineerAccess: {
-          title: 'Salesforce Developer',
+          title: 'Senior Salesforce Developer',
           company: 'Engineer Access',
           description: 'Development of scalable Salesforce solutions',
           highlights: [
-            'Develop scalable solutions in Apex and LWC, aligned with business needs',
-            'Participate in direct meetings with international clients, ensuring technical alignment',
-            'Create intelligent integrations in Salesforce, including AI with OpenAI, AWS Comprehend and Claude AI',
-            'Ensure high-quality deployments with unit tests and performance optimization'
+            'Design and deliver scalable solutions in Apex and LWC aligned to business needs',
+            'Lead technical discussions with international clients ensuring alignment',
+            'Build intelligent integrations in Salesforce including OpenAI, AWS Comprehend and Claude AI',
+            'Ensure high-quality deployments with robust unit tests and performance optimization'
           ]
         },
         capgemini: {
@@ -43,10 +43,10 @@ export const translations = {
           company: 'Capgemini',
           description: 'Development and optimization of Salesforce solutions',
           highlights: [
-            'Migrated Salesforce Classic components to Lightning, converting Aura to LWC, reducing loading time from 6s to 3s',
-            'Implemented a recommendation system based on Einstein GPT to suggest Knowledge Base articles, reducing the need for human support',
-            'Developed solutions in Apex and LWC, creating automations, sharing rules and security strategies',
-            'Collaborated with global teams in delivering scalable and optimized Salesforce solutions'
+            'Migrated Salesforce Classic to Lightning (Aura → LWC), reducing load time from 6s to 3s',
+            'Implemented Einstein GPT recommendations for Knowledge Base, reducing human support needs',
+            'Developed Apex and LWC solutions including automations, sharing rules and security strategies',
+            'Collaborated with global teams to deliver scalable, optimized Salesforce solutions'
           ]
         },
         vibbra: {
@@ -54,7 +54,7 @@ export const translations = {
           company: 'Vibbra!',
           description: 'Development of applications for the fitness industry',
           highlights: [
-            'Developed and maintained applications for the fitness industry, implementing new features and improvements',
+            'Implemented new features and improvements',
             'Optimized database performance and application responsiveness'
           ]
         },
@@ -63,8 +63,8 @@ export const translations = {
           company: 'Núcleo de Ensino Técnico Sinai',
           description: 'Full stack web development',
           highlights: [
-            'Designed and built a responsive educational website for institutional information',
-            'Developed and maintained front-end and back-end components'
+            'Built a responsive educational website for institutional information',
+            'Maintained front-end and back-end components'
           ]
         }
       }
@@ -86,10 +86,10 @@ export const translations = {
     },
     hero: {
       name: 'Thiago Santos',
-      role: 'Desenvolvedor Salesforce Pleno',
+      role: 'Desenvolvedor Salesforce Sênior',
       title: 'Eu transformo ideias em',
       highlight: 'soluções!',
-      description: 'Desenvolvedor Salesforce especializado em criar soluções escaláveis e inovadoras. Com experiência em Apex, LWC e integrações com IA, transformo desafios em oportunidades.',
+      description: 'Desenvolvedor Salesforce Sênior, especialista em arquiteturas escaláveis, Apex, LWC e integrações com IA. Entrego impacto mensurável com qualidade, performance e ótima DX.',
       buttons: {
         contact: 'Entre em Contato',
         download: 'Baixar CV',
@@ -106,14 +106,14 @@ export const translations = {
       technologies: 'Tecnologias',
       positions: {
         engineerAccess: {
-          title: 'Desenvolvedor Salesforce',
+          title: 'Desenvolvedor Salesforce Sênior',
           company: 'Engineer Access',
           description: 'Desenvolvimento de soluções escaláveis em Salesforce',
           highlights: [
-            'Desenvolvo soluções escaláveis em Apex e LWC, alinhadas com as necessidades do negócio',
-            'Participo de reuniões diretas com clientes internacionais, garantindo alinhamento técnico',
-            'Crio integrações inteligentes no Salesforce, incluindo IA com OpenAI, AWS Comprehend e Claude AI',
-            'Garanto implantações de alta qualidade com testes unitários e otimização de performance'
+            'Desenho e entrega de soluções escaláveis em Apex e LWC alinhadas ao negócio',
+            'Condução de discussões técnicas com clientes internacionais',
+            'Integrações inteligentes no Salesforce (OpenAI, AWS Comprehend, Claude AI)',
+            'Implantações de alta qualidade com testes robustos e otimização de performance'
           ]
         },
         capgemini: {
@@ -121,10 +121,10 @@ export const translations = {
           company: 'Capgemini',
           description: 'Desenvolvimento e otimização de soluções Salesforce',
           highlights: [
-            'Migrei componentes Salesforce Classic para Lightning, convertendo Aura para LWC, reduzindo o tempo de carregamento de 6s para 3s',
-            'Implementei um sistema de recomendação baseado em Einstein GPT para sugerir artigos da Base de Conhecimento, reduzindo a necessidade de suporte humano',
-            'Desenvolvi soluções em Apex e LWC, criando automações, regras de compartilhamento e estratégias de segurança',
-            'Colaborei com equipes globais na entrega de soluções Salesforce escaláveis e otimizadas'
+            'Migração de Salesforce Classic para Lightning (Aura → LWC), reduzindo carregamento de 6s para 3s',
+            'Sistema de recomendação com Einstein GPT para artigos da Base de Conhecimento',
+            'Automação, regras de compartilhamento e estratégias de segurança com Apex e LWC',
+            'Colaboração com times globais para soluções escaláveis e otimizadas'
           ]
         },
         vibbra: {
@@ -132,8 +132,8 @@ export const translations = {
           company: 'Vibbra!',
           description: 'Desenvolvimento de aplicações para a indústria fitness',
           highlights: [
-            'Desenvolvi e mantive aplicações para a indústria fitness, implementando novos recursos e melhorias',
-            'Otimizei performance de banco de dados e responsividade da aplicação'
+            'Implementação de novas funcionalidades e melhorias',
+            'Otimização de performance de banco e responsividade'
           ]
         },
         sinai: {
@@ -141,8 +141,8 @@ export const translations = {
           company: 'Núcleo de Ensino Técnico Sinai',
           description: 'Desenvolvimento web full stack',
           highlights: [
-            'Projetei e construí um site educacional responsivo para informações institucionais',
-            'Desenvolvi e mantive componentes front-end e back-end'
+            'Construção de site educacional responsivo',
+            'Manutenção de componentes front-end e back-end'
           ]
         }
       }
