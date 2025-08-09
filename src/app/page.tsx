@@ -7,15 +7,15 @@ import NeonDivider from '@/components/NeonDivider'
 
 export default function Home() {
   return (
-    <main>
+    <main className="snap-y snap-mandatory overflow-y-auto h-screen">
       <Navbar />
-      <Hero />
+      <section className="snap-start"><Hero /></section>
       <NeonDivider />
-      <Projects />
+      <section className="snap-start"><Projects /></section>
       <NeonDivider />
-      <Experience />
+      <section className="snap-start"><Experience /></section>
       <NeonDivider />
-      <Contact />
+      <section className="snap-start"><Contact /></section>
     </main>
   )
 } 

@@ -46,4 +46,11 @@ body {
   .heading-2 { @apply text-3xl sm:text-4xl lg:text-5xl font-semibold; }
   .heading-3 { @apply text-2xl sm:text-3xl lg:text-4xl font-medium; }
   .body-text { @apply text-base sm:text-lg text-gray-700 dark:text-gray-300; }
-} 
+}
+
+/* Glass + chip helpers (light/dark aware) */
+.glass { backdrop-filter: blur(12px); border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); }
+[data-theme='light'] .glass { border-color: rgba(0,0,0,0.08); background: rgba(0,0,0,0.04); }
+
+.chip { backdrop-filter: blur(12px); border-radius: 9999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.08); }
+[data-theme='light'] .chip { border-color: rgba(0,0,0,0.1); background: rgba(0,0,0,0.06); } 
