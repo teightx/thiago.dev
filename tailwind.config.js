@@ -10,14 +10,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: '#0b6fa8',
-          DEFAULT: '#082f49', // even darker than before
-          dark: '#041e2e',
+          light: '#22b8e6',
+          DEFAULT: '#0b84c4',
+          dark: '#076d9f',
         },
         secondary: {
-          light: '#0ea5e9',
-          DEFAULT: '#0b7285',
-          dark: '#064e5a',
+          light: '#6ee7ff',
+          DEFAULT: '#22d3ee',
+          dark: '#0fb7d5',
         },
         dark: {
           lighter: '#122031',
@@ -25,14 +25,14 @@ module.exports = {
           DEFAULT: '#060e1a',
           dark: '#03070d',
         },
-        accent: '#0891b2',
+        accent: '#0ea5e9',
         success: '#22c55e',
         background: {
           dark: '#0a1524',
           light: '#eef2f6',
         },
         card: {
-          dark: 'rgba(2, 6, 23, 0.5)',
+          dark: 'rgba(2, 6, 23, 0.45)',
           light: 'rgba(255, 255, 255, 0.85)',
         },
       },
@@ -58,8 +58,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        'glow': '0 0 24px rgba(8, 114, 133, 0.25)',
-        'glow-strong': '0 0 36px rgba(8, 47, 73, 0.5)',
+        'glow': '0 0 24px rgba(34, 211, 238, 0.25)',
+        'glow-strong': '0 0 36px rgba(11, 132, 196, 0.45)',
       },
     },
   },

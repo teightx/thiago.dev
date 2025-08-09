@@ -11,28 +11,23 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/60 backdrop-blur-lg py-4 border-b border-white/10' : 'bg-transparent py-6'
-    }`}>
+      isScrolled ? 'bg-black/70 backdrop-blur-md py-3 border-b border-white/10' : 'bg-black/50 backdrop-blur-md py-4 border-b border-white/10'
+    }`}
+    style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace' }}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a
-          href="#"
-          className="flex items-center space-x-2"
-        >
-          <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <a href="#" className="flex items-center space-x-2">
+          <span className="text-lg md:text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             thiago.dev
           </span>
         </a>
-
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-8 text-sm">
           <Link href="/" className="text-gray-300 hover:text-white transition-colors">
             {t.nav.home}
           </Link>
