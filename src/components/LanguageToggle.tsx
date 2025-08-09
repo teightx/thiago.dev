@@ -8,10 +8,10 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={toggleLanguage}
-      className="fixed bottom-6 right-20 p-3 rounded-full bg-black/40 backdrop-blur-sm hover:bg-black/60 transition-colors"
+      className="fixed bottom-6 right-20 px-3 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:bg-white/20 transition-colors shadow-glow"
       aria-label="Toggle language"
     >
-      <span className="text-sm font-bold text-orange-500">
+      <span className="text-sm font-bold text-primary">
         {language === 'en' ? 'PT' : 'EN'}
       </span>
     </button>

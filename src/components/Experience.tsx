@@ -60,36 +60,36 @@ export default function Experience() {
             return (
               <div
                 key={exp.key}
-                className="bg-white/80 backdrop-blur-sm border border-gray-200 dark:bg-gray-950 dark:border-gray-800 rounded-xl p-6 hover:bg-white/90 dark:hover:bg-gray-900 transition-colors"
+                className="bg-black/40 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-black/50 transition-colors shadow-glow"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{position.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">{position.company}</p>
+                    <h3 className="text-xl font-semibold text-white">{position.title}</h3>
+                    <p className="text-gray-300">{position.company}</p>
                   </div>
                   <div className="flex items-center mt-2 md:mt-0">
-                    <span className="text-gray-600 dark:text-gray-300">{exp.period}</span>
+                    <span className="text-gray-300">{exp.period}</span>
                     <div className="ml-4 flex gap-2">
-                      <span className="px-3 py-1 text-sm bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary rounded-full">
+                      <span className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20">
                         {exp.type}
                       </span>
                       {exp.location && (
-                        <span className="px-3 py-1 text-sm bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary rounded-full">
+                        <span className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20">
                           {exp.location}
                         </span>
                       )}
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{position.description}</p>
-                <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-gray-300 mb-4">{position.description}</p>
+                <ul className="list-disc list-inside space-y-2 text-gray-300 mb-4">
                   {position.highlights.map((highlight: string, highlightIndex: number) => (
                     <li key={highlightIndex}>{highlight}</li>
                   ))}
                 </ul>
                 <div className="text-sm">
                   <span className="font-semibold text-primary">{t.experience.technologies}:</span>{' '}
-                  <span className="text-gray-600 dark:text-gray-300">{exp.technologies}</span>
+                  <span className="text-gray-300">{exp.technologies}</span>
                 </div>
               </div>
             )

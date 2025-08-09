@@ -74,19 +74,19 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white/80 backdrop-blur-sm border border-gray-200 dark:bg-gray-950 dark:border-gray-800 rounded-xl p-6 hover:bg-white/90 dark:hover:bg-gray-900 transition-colors"
+              className="bg-black/40 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-black/50 transition-colors shadow-glow"
             >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-semibold text-white mb-3">
                 {project.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-gray-300 mb-4">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 text-sm bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary rounded-full"
+                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
                   >
                     {tech}
                   </span>

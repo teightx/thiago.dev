@@ -9,13 +9,13 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed bottom-6 right-6 p-3 rounded-full bg-black/40 backdrop-blur-sm hover:bg-black/60 transition-colors"
+      className="fixed bottom-6 right-6 p-3 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:bg-white/20 transition-colors shadow-glow"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        <FaSun className="w-6 h-6 text-orange-500" />
+        <FaSun className="w-6 h-6 text-primary" />
       ) : (
-        <FaMoon className="w-6 h-6 text-blue-400" />
+        <FaMoon className="w-6 h-6 text-secondary" />
       )}
     </button>
   )
