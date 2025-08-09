@@ -10,30 +10,30 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: '#22d3ee',
-          DEFAULT: '#0ea5e9',
-          dark: '#0284c7',
+          light: '#0ea5e9',
+          DEFAULT: '#0369a1', // darker than LinkedIn
+          dark: '#0b3b64',
         },
         secondary: {
-          light: '#5eead4',
-          DEFAULT: '#22d3ee',
-          dark: '#06b6d4',
+          light: '#22d3ee',
+          DEFAULT: '#0891b2',
+          dark: '#065f73',
         },
         dark: {
-          lighter: '#2d2d2d',
-          light: '#1a1a1a',
-          DEFAULT: '#171717',
-          dark: '#121212',
+          lighter: '#1f2937',
+          light: '#0b1220',
+          DEFAULT: '#070b16',
+          dark: '#04070e',
         },
-        accent: '#22d3ee', // Cyan
-        success: '#22c55e', // Green
+        accent: '#0ea5e9',
+        success: '#22c55e',
         background: {
-          dark: '#0f172a', // Slate 900
-          light: '#f8fafc', // Slate 50
+          dark: '#0b1220',
+          light: '#f1f5f9',
         },
         card: {
-          dark: 'rgba(30, 41, 59, 0.5)', // Slate 800 with opacity
-          light: 'rgba(255, 255, 255, 0.8)',
+          dark: 'rgba(2, 6, 23, 0.6)',
+          light: 'rgba(255, 255, 255, 0.85)',
         },
       },
       backgroundImage: {
@@ -58,8 +58,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(34, 211, 238, 0.2)',
-        'glow-strong': '0 0 30px rgba(14, 165, 233, 0.4)',
+        'glow': '0 0 20px rgba(8, 145, 178, 0.25)',
+        'glow-strong': '0 0 30px rgba(3, 105, 161, 0.45)',
       },
     },
   },

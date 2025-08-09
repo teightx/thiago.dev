@@ -4,12 +4,12 @@
 
 :root {
   --foreground: #171717;
-  --background: #171717;
+  --background: #0a0f1e; /* deep navy */
 }
 
 [data-theme='dark'] {
   --foreground: #ffffff;
-  --background: #171717;
+  --background: #0a0f1e;
 }
 
 [data-theme='light'] {
@@ -19,8 +19,25 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background:
+    radial-gradient(800px 400px at 10% 10%, rgba(34,211,238,0.08), transparent 60%),
+    radial-gradient(600px 300px at 90% 20%, rgba(14,165,233,0.08), transparent 60%),
+    linear-gradient(180deg, #0b132b 0%, #0f172a 50%, #020617 100%);
   min-height: 100vh;
+  position: relative;
+}
+
+/* Tech grid texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Smooth scrolling */
@@ -34,7 +51,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -43,7 +60,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7; /* primary.dark */
+  background: #0369a1; /* darker primary */
 }
 
 /* Selection color */
@@ -63,7 +80,7 @@ html {
 }
 
 .card-dark {
-  @apply bg-black/40 backdrop-blur-sm border border-gray-800;
+  @apply bg-black/40 backdrop-blur-lg border border-white/10;
 }
 
 .text-primary-light {
