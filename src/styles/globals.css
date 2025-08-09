@@ -3,30 +3,38 @@
 @tailwind utilities;
 
 :root {
+  /* default to dark */
   --foreground-rgb: 255, 255, 255;
   --bg1: 8, 11, 20;   /* deep navy */
-  --bg2: 15, 23, 42;  /* slate-900 */
+  --bg2: 11, 18, 32;  /* darker slate */
   --bg3: 2, 6, 23;    /* near black */
   --grid: 255, 255, 255;
-  --grid-alpha: 0.04;
+  --grid-alpha: 0.05;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --foreground-rgb: 23, 23, 23;
-    --bg1: 240, 249, 255; /* light blue */
-    --bg2: 224, 242, 254;
-    --bg3: 248, 250, 252;
-    --grid: 2, 6, 23;
-    --grid-alpha: 0.06;
-  }
+[data-theme='light'] {
+  --foreground-rgb: 23, 23, 23;
+  --bg1: 240, 249, 255; /* light blue */
+  --bg2: 224, 242, 254;
+  --bg3: 248, 250, 252;
+  --grid: 2, 6, 23;
+  --grid-alpha: 0.06;
+}
+
+[data-theme='dark'] {
+  --foreground-rgb: 255, 255, 255;
+  --bg1: 8, 11, 20;
+  --bg2: 11, 18, 32;
+  --bg3: 2, 6, 23;
+  --grid: 255, 255, 255;
+  --grid-alpha: 0.05;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background:
-    radial-gradient(800px 400px at 10% 10%, rgba(34,211,238,0.08), transparent 60%),
-    radial-gradient(600px 300px at 90% 20%, rgba(14,165,233,0.08), transparent 60%),
+    radial-gradient(900px 500px at 15% 10%, rgba(8,145,178,0.10), transparent 60%),
+    radial-gradient(700px 400px at 85% 20%, rgba(3,105,161,0.12), transparent 60%),
     linear-gradient(180deg, rgba(var(--bg1),1) 0%, rgba(var(--bg2),1) 50%, rgba(var(--bg3),1) 100%);
   position: relative;
 }
@@ -39,9 +47,29 @@ body::before {
   background-image:
     linear-gradient(rgba(var(--grid), var(--grid-alpha)) 1px, transparent 1px),
     linear-gradient(90deg, rgba(var(--grid), var(--grid-alpha)) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px;
+  background-size: 48px 48px, 48px 48px;
   pointer-events: none;
   z-index: -1;
+}
+
+/* animated blobs */
+.blob {
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  filter: blur(80px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 9999px;
+}
+.blob.blob1 { background: #0369a1; top: -120px; left: -120px; animation: drift 40s ease-in-out infinite; }
+.blob.blob2 { background: #065f73; bottom: -160px; right: -160px; animation: drift 55s ease-in-out infinite reverse; }
+
+@keyframes drift {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(40px, -30px, 0) scale(1.05); }
+  100% { transform: translate3d(0,0,0) scale(1); }
 }
 
 @layer components {

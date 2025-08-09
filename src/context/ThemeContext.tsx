@@ -26,7 +26,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
+    const root = document.documentElement
+    root.setAttribute('data-theme', theme)
+    root.classList.toggle('dark', theme === 'dark')
     localStorage.setItem('theme', theme)
   }, [theme])
 
@@ -36,11 +38,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [language])
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark')
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))
   }
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'pt' : 'en')
+    setLanguage(prev => (prev === 'en' ? 'pt' : 'en'))
   }
 
   return (

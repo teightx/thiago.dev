@@ -11,6 +11,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Thiago Santos | Salesforce Developer',
   description: 'Senior Salesforce Developer specialized in scalable architectures and AI-powered integrations.',
+  icons: {
+    icon: '/thiago.dev/favicon.ico',
+    shortcut: '/thiago.dev/favicon.ico',
+    apple: '/thiago.dev/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -22,6 +27,8 @@ export default function RootLayout({
     <html lang="en" data-theme="dark">
       <body className={`${inter.className} theme-transition antialiased`}>
         <ThemeProvider>
+          <div className="blob blob1" />
+          <div className="blob blob2" />
           {children}
           <ThemeToggle />
           <LanguageToggle />
