@@ -10,14 +10,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: '#ff7e5f',
-          DEFAULT: '#ff5f4f',
-          dark: '#e64c3d',
+          light: '#22d3ee',
+          DEFAULT: '#0ea5e9',
+          dark: '#0284c7',
         },
         secondary: {
-          light: '#feb47b',
-          DEFAULT: '#ff9966',
-          dark: '#ff7e5f',
+          light: '#5eead4',
+          DEFAULT: '#22d3ee',
+          dark: '#06b6d4',
         },
         dark: {
           lighter: '#2d2d2d',
@@ -25,7 +25,7 @@ module.exports = {
           DEFAULT: '#171717',
           dark: '#121212',
         },
-        accent: '#06b6d4', // Cyan
+        accent: '#22d3ee', // Cyan
         success: '#22c55e', // Green
         background: {
           dark: '#0f172a', // Slate 900
@@ -58,8 +58,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(99, 102, 241, 0.2)',
-        'glow-strong': '0 0 30px rgba(99, 102, 241, 0.4)',
+        'glow': '0 0 20px rgba(34, 211, 238, 0.2)',
+        'glow-strong': '0 0 30px rgba(14, 165, 233, 0.4)',
       },
     },
   },

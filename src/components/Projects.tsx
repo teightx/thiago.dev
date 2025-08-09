@@ -67,7 +67,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           {t.projects.title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -86,7 +86,7 @@ export default function Projects() {
                 {project.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 text-sm bg-orange-500/10 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400 rounded-full"
+                    className="px-3 py-1 text-sm bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary rounded-full"
                   >
                     {tech}
                   </span>
@@ -96,7 +96,7 @@ export default function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-orange-500 hover:text-orange-400 transition-colors"
+                className="inline-flex items-center text-primary hover:text-secondary transition-colors"
               >
                 {t.projects.viewProject} →
               </a>

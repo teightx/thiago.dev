@@ -38,17 +38,17 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff5f4f;
+  background: #0ea5e9; /* primary */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff7e5f;
+  background: #0284c7; /* primary.dark */
 }
 
 /* Selection color */
 ::selection {
-  background: #ff5f4f;
+  background: #22d3ee; /* secondary */
   color: white;
 }
 
