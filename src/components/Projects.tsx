@@ -2,6 +2,7 @@
 
 import { useTheme } from '@/context/ThemeContext'
 import { translations } from '@/translations'
+import { FaFolderOpen } from 'react-icons/fa'
 
 const projects = [
   {
@@ -67,14 +68,14 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          {t.projects.title}
+        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
+          <FaFolderOpen className="text-primary" /> {t.projects.title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-black/30 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-black/40 transition-colors shadow-glow"
+              className="group bg-white/6 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 shadow-glow hover:-translate-y-1 hover:scale-[1.01]"
             >
               <h3 className="text-xl font-semibold text-white mb-3">
                 {project.title}
@@ -86,7 +87,7 @@ export default function Projects() {
                 {project.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
+                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 group-hover:bg-primary/15"
                   >
                     {tech}
                   </span>

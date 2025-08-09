@@ -10,29 +10,29 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: '#0ea5e9',
-          DEFAULT: '#0369a1', // darker than LinkedIn
-          dark: '#0b3b64',
+          light: '#0b6fa8',
+          DEFAULT: '#082f49', // even darker than before
+          dark: '#041e2e',
         },
         secondary: {
-          light: '#22d3ee',
-          DEFAULT: '#0891b2',
-          dark: '#065f73',
+          light: '#0ea5e9',
+          DEFAULT: '#0b7285',
+          dark: '#064e5a',
         },
         dark: {
-          lighter: '#1f2937',
-          light: '#0b1220',
-          DEFAULT: '#070b16',
-          dark: '#04070e',
+          lighter: '#122031',
+          light: '#0a1524',
+          DEFAULT: '#060e1a',
+          dark: '#03070d',
         },
-        accent: '#0ea5e9',
+        accent: '#0891b2',
         success: '#22c55e',
         background: {
-          dark: '#0b1220',
-          light: '#f1f5f9',
+          dark: '#0a1524',
+          light: '#eef2f6',
         },
         card: {
-          dark: 'rgba(2, 6, 23, 0.6)',
+          dark: 'rgba(2, 6, 23, 0.5)',
           light: 'rgba(255, 255, 255, 0.85)',
         },
       },
@@ -58,8 +58,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(8, 145, 178, 0.25)',
-        'glow-strong': '0 0 30px rgba(3, 105, 161, 0.45)',
+        'glow': '0 0 24px rgba(8, 114, 133, 0.25)',
+        'glow-strong': '0 0 36px rgba(8, 47, 73, 0.5)',
       },
     },
   },

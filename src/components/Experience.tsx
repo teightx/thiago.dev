@@ -2,6 +2,7 @@
 
 import { useTheme } from '@/context/ThemeContext'
 import { translations } from '@/translations'
+import { FaBriefcase } from 'react-icons/fa'
 
 type ExperienceKey = 'engineerAccess' | 'capgemini' | 'vibbra' | 'sinai'
 
@@ -51,8 +52,8 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          {t.experience.title}
+        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
+          <FaBriefcase className="text-primary" /> {t.experience.title}
         </h2>
         <div className="space-y-8">
           {experiences.map((exp) => {
@@ -60,7 +61,7 @@ export default function Experience() {
             return (
               <div
                 key={exp.key}
-                className="bg-black/30 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-black/40 transition-colors shadow-glow"
+                className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 shadow-glow hover:-translate-y-1 hover:scale-[1.005]"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
