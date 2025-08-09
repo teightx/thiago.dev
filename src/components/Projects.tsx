@@ -74,7 +74,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-black/40 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-black/50 transition-colors shadow-glow"
+              className="bg-black/30 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-black/40 transition-colors shadow-glow"
             >
               <h3 className="text-xl font-semibold text-white mb-3">
                 {project.title}
