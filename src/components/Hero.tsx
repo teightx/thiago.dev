@@ -31,17 +31,18 @@ export default function Hero() {
           </div>
 
           <div className="text-center md:text-left">
-            <h1 className="heading-1 mb-4">
+            <h1 className="heading-1 mb-2" style={{fontFamily:'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}}>
+              <span className="text-gray-400">$</span>{' '}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Thiago Santos</span>
             </h1>
             <div className="flex gap-4 text-primary justify-center md:justify-start mb-6">
-              <span className="inline-flex items-center gap-2 text-sm bg-white/8 border border-white/10 px-3 py-1 rounded-full backdrop-blur-md">
+              <span className="inline-flex items-center gap-2 text-sm bg-white/10 border border-white/15 px-3 py-1 rounded-full backdrop-blur-md">
                 <FaSalesforce /> {language === 'en' ? 'Senior Salesforce Developer' : 'Desenvolvedor Salesforce Sênior'}
               </span>
-              <span className="hidden sm:inline-flex items-center gap-2 text-sm bg-white/8 border border-white/10 px-3 py-1 rounded-full backdrop-blur-md">
+              <span className="hidden sm:inline-flex items-center gap-2 text-sm bg-white/10 border border-white/15 px-3 py-1 rounded-full backdrop-blur-md">
                 <FaCogs /> Integrations & AI
               </span>
-              <span className="hidden sm:inline-flex items-center gap-2 text-sm bg-white/8 border border-white/10 px-3 py-1 rounded-full backdrop-blur-md">
+              <span className="hidden sm:inline-flex items-center gap-2 text-sm bg-white/10 border border-white/15 px-3 py-1 rounded-full backdrop-blur-md">
                 <FaProjectDiagram /> DX & Quality
               </span>
             </div>
@@ -51,16 +52,15 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 md:justify-start justify-center">
-              <Link href="#projects" className="px-8 py-3 bg-white/12 text-white rounded-full border border-white/15 hover:bg-white/20 transition-colors text-center">Projetos</Link>
-              <Link href="#experience" className="px-8 py-3 bg-white/6 text-white rounded-full border border-white/10 hover:bg-white/12 transition-colors text-center">Experiência</Link>
-              <a href="/thiago.dev/cv.pdf" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:opacity-90 transition-opacity text-center">Download CV</a>
+              <Link href="#contact" className="px-8 py-3 bg-white/12 text-white rounded-full border border-white/15 hover:bg-white/20 transition-colors text-center">{t.hero.buttons.contact}</Link>
+              <a href="/thiago.dev/cv.pdf" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:opacity-90 transition-opacity text-center">{t.hero.buttons.download}</a>
             </div>
 
             <div className="mt-12">
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-70" />
               <div className="flex flex-wrap gap-6 justify-center md:justify-start mt-8">
                 {technologies.map((tech) => (
-                  <div key={tech.name} className="w-12 h-12 relative bg-white/8 border border-white/10 rounded-xl p-2 backdrop-blur-md hover:bg-white/15 transition-colors">
+                  <div key={tech.name} className="w-12 h-12 relative bg-white/10 border border-white/15 rounded-xl p-2 backdrop-blur-md hover:bg-white/15 transition-colors">
                     <Image src={tech.icon} alt={tech.name} fill className="object-contain p-1" />
                   </div>
                 ))}

@@ -61,6 +61,20 @@ const projects = [
   }
 ]
 
+function WindowChrome({ title }: { title: string }) {
+  return (
+    <div className="flex items-center justify-between px-3 py-2 border-b border-white/10 text-xs text-gray-300" style={{fontFamily:'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}}>
+      <div className="flex items-center gap-1">
+        <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+        <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+        <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+      </div>
+      <span className="text-gray-400">{title}</span>
+      <span className="opacity-0">.</span>
+    </div>
+  )
+}
+
 export default function Projects() {
   const { language } = useTheme()
   const t = translations[language]
@@ -73,34 +87,18 @@ export default function Projects() {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group bg-white/6 backdrop-blur-lg border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 shadow-glow hover:-translate-y-1 hover:scale-[1.01]"
-            >
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {project.title}
-              </h3>
-              <p className="text-gray-300 mb-4">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 group-hover:bg-primary/15"
-                  >
-                    {tech}
-                  </span>
-                ))}
+            <div key={index} className="group rounded-xl border border-white/10 bg-white/6 backdrop-blur-lg shadow-glow hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 overflow-hidden">
+              <WindowChrome title={`${project.title}.md`} />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
+                <p className="text-gray-300 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 group-hover:bg-primary/15">{tech}</span>
+                  ))}
+                </div>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary hover:text-secondary transition-colors">{t.projects.viewProject} →</a>
               </div>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-primary hover:text-secondary transition-colors"
-              >
-                {t.projects.viewProject} →
-              </a>
             </div>
           ))}
         </div>
