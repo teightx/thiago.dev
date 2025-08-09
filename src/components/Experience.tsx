@@ -45,16 +45,12 @@ const experiences: Experience[] = [
   }
 ]
 
-function WindowChrome({ title }: { title: string }) {
+function WindowChrome() {
   return (
-    <div className="flex items-center justify-between px-3 py-2 border-b border-white/10 text-xs text-gray-300" style={{fontFamily:'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}}>
-      <div className="flex items-center gap-1">
-        <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-        <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
-        <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-      </div>
-      <span className="text-gray-400">{title}</span>
-      <span className="opacity-0">.</span>
+    <div className="flex items-center gap-1 px-3 py-2 border-b border-white/10">
+      <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+      <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+      <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
     </div>
   )
 }
@@ -64,17 +60,17 @@ export default function Experience() {
   const t = translations[language]
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
+        <h2 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
           <FaBriefcase className="text-primary" /> {t.experience.title}
         </h2>
         <div className="grid grid-cols-1 gap-8">
           {experiences.map((exp) => {
             const position = t.experience.positions[exp.key]
             return (
-              <div key={exp.key} className="group rounded-xl border border-white/10 bg-white/6 backdrop-blur-lg shadow-glow hover:-translate-y-1 hover:scale-[1.005] transition-all duration-300 overflow-hidden">
-                <WindowChrome title={`${position.company}-${position.title}.ts`} />
+              <div key={exp.key} className="group rounded-xl glass shadow-glow hover:-translate-y-1 hover:scale-[1.005] transition-all duration-300 overflow-hidden">
+                <WindowChrome />
                 <div className="p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>

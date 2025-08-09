@@ -61,16 +61,12 @@ const projects = [
   }
 ]
 
-function WindowChrome({ title }: { title: string }) {
+function WindowChrome() {
   return (
-    <div className="flex items-center justify-between px-3 py-2 border-b border-white/10 text-xs text-gray-300" style={{fontFamily:'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}}>
-      <div className="flex items-center gap-1">
-        <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-        <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
-        <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-      </div>
-      <span className="text-gray-400">{title}</span>
-      <span className="opacity-0">.</span>
+    <div className="flex items-center gap-1 px-3 py-2 border-b border-white/10">
+      <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+      <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+      <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
     </div>
   )
 }
@@ -80,15 +76,15 @@ export default function Projects() {
   const t = translations[language]
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
+        <h2 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
           <FaFolderOpen className="text-primary" /> {t.projects.title}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="group rounded-xl border border-white/10 bg-white/6 backdrop-blur-lg shadow-glow hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 overflow-hidden">
-              <WindowChrome title={`${project.title}.md`} />
+            <div key={index} className="group rounded-xl glass shadow-glow hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 overflow-hidden">
+              <WindowChrome />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
