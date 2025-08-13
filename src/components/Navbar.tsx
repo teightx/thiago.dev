@@ -34,14 +34,19 @@ export default function Navbar() {
           <Link href="#contact" className="text-gray-300 hover:text-white transition-colors">{t.nav.contact}</Link>
         </div>
       </div>
-      {/* Tabs line */}
-      <div className="border-t border-white/10">
-        <div className="container mx-auto px-6 flex gap-4 text-xs">
-          <span className="py-2 px-3 bg-white/10 border border-white/10 rounded-t-md text-gray-200">_hello</span>
-          <span className="py-2 px-3 text-gray-400">_about-me</span>
-          <span className="py-2 px-3 text-gray-400">_projects</span>
-          <span className="py-2 px-3 text-gray-400">_experience</span>
-          <span className="py-2 px-3 text-gray-400">_contact-me</span>
+      {/* VS Code Tabs */}
+      <div className="border-t border-white/10 bg-black/20">
+        <div className="container mx-auto px-6 flex text-xs">
+          <div className="flex">
+            <span className="py-2 px-4 bg-gray-800/90 border-r border-white/10 text-gray-200 flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+              _hello.tsx
+            </span>
+            <span className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors">_about-me.js</span>
+            <span className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors">_projects.json</span>
+            <span className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors">_experience.md</span>
+            <span className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors">_contact.yml</span>
+          </div>
         </div>
       </div>
     </header>

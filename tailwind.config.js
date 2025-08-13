@@ -10,14 +10,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: '#22b8e6',
-          DEFAULT: '#0b84c4',
-          dark: '#076d9f',
+          light: '#00d4ff',
+          DEFAULT: '#0099cc',
+          dark: '#007acc',
         },
         secondary: {
-          light: '#6ee7ff',
-          DEFAULT: '#22d3ee',
-          dark: '#0fb7d5',
+          light: '#00ffff',
+          DEFAULT: '#00d4ff',
+          dark: '#0099cc',
         },
         dark: {
           lighter: '#122031',
@@ -25,15 +25,21 @@ module.exports = {
           DEFAULT: '#060e1a',
           dark: '#03070d',
         },
-        accent: '#0ea5e9',
-        success: '#22c55e',
+        accent: '#00ffff',
+        success: '#00ff88',
+        neon: {
+          cyan: '#00ffff',
+          blue: '#0080ff',
+          purple: '#8000ff',
+          pink: '#ff0080',
+        },
         background: {
           dark: '#0a1524',
           light: '#eef2f6',
         },
         card: {
-          dark: 'rgba(2, 6, 23, 0.45)',
-          light: 'rgba(255, 255, 255, 0.85)',
+          dark: 'rgba(0, 20, 40, 0.4)',
+          light: 'rgba(255, 255, 255, 0.7)',
         },
       },
       backgroundImage: {
@@ -58,8 +64,9 @@ module.exports = {
         },
       },
       boxShadow: {
-        'glow': '0 0 24px rgba(34, 211, 238, 0.25)',
-        'glow-strong': '0 0 36px rgba(11, 132, 196, 0.45)',
+        'glow': '0 0 24px rgba(0, 212, 255, 0.3)',
+        'glow-strong': '0 0 36px rgba(0, 255, 255, 0.5)',
+        'neon': '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor',
       },
     },
   },

@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import About from '@/components/About'
 import Projects from '@/components/Projects'
 import Experience from '@/components/Experience'
 import Contact from '@/components/Contact'
@@ -7,15 +8,17 @@ import NeonDivider from '@/components/NeonDivider'
 
 export default function Home() {
   return (
-    <main className="snap-y snap-mandatory overflow-y-auto h-screen">
+    <main>
       <Navbar />
-      <section className="snap-start"><Hero /></section>
+      <Hero />
       <NeonDivider />
-      <section className="snap-start"><Projects /></section>
+      <About />
       <NeonDivider />
-      <section className="snap-start"><Experience /></section>
+      <Projects />
       <NeonDivider />
-      <section className="snap-start"><Contact /></section>
+      <Experience />
+      <NeonDivider />
+      <Contact />
     </main>
   )
 } 
