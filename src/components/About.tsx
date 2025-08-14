@@ -3,11 +3,149 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useTheme } from '@/context/ThemeContext'
-import { translations } from '@/translations'
 
 export default function About() {
   const { language } = useTheme()
-  const t = translations[language]
+
+  const enCode = `// Senior Salesforce Developer — profile object (EN)
+
+const developer = {
+  name: "Thiago Santos",
+  title: "Senior Salesforce Developer",
+  experienceYears: 6,
+  location: "Brazil (Remote)",
+
+  sectors: ["Banking", "Insurance", "Energy", "Automotive"],
+
+  clouds: [
+    "Service Cloud",
+    "Sales Cloud", 
+    "Financial Services Cloud",
+    "Marketing Cloud (integrations)"
+  ],
+
+  specialties: [
+    "Apex (triggers, batch, queueable, schedulable, test factories)",
+    "Lightning Web Components (LWC) & UI composition",
+    "REST/SOAP APIs (bi‑directional integrations, mapping, retries)",
+    "OAuth 2.0, Auth Provider, Named/External Credentials",
+    "Custom Metadata/Settings for configuration and feature flags",
+    "Flow Builder (screen/record‑triggered) + Apex Invocable",
+    "SOQL/SOSL tuning and governor limits",
+    "Security model (profiles, permission sets, sharing rules)"
+  ],
+
+  toolingAndMethods: [
+    "Salesforce DX & VS Code",
+    "Git (branching, PRs, code review)",
+    "CI/CD",
+    "Postman/Insomnia",
+    "Jira (Scrum), Confluence",
+    "Data Loader/Workbench"
+  ],
+
+  integrationHighlights: [
+    "Generic bus connection via Custom Metadata + Keycloak (OAuth 2.0)",
+    "Octopus GraphQL data fetch (customer/contract/vehicle)",
+    "WhatsApp via Zenvia -> Service Cloud Cases",
+    "Sync for Contract/Vehicle/Account/Contact + real‑time UI fill with Flow + Apex Invocable"
+  ],
+
+  processAutomationAndUX: [
+    "Auto‑fill fields on screens (LWC/Flows) with dependencies/validations",
+    "Escalation rules (L1/L2/L3) and case automations",
+    "Dynamic Flexipages, related lists and conditional forms"
+  ],
+
+  achievements: [
+    "Complex integrations eliminating manual work and accelerating operations",
+    "International projects with onsite work in NYC",
+    "Query/governor optimization for high‑volume orgs",
+    "Security/Sharing model across multiple teams",
+    "Reusable Apex frameworks (connections, logging, error handling)"
+  ],
+
+  languages: [
+    { language: "Portuguese", level: "Native" },
+    { language: "English", level: "Fluent" }
+  ],
+
+  summary:
+    "Senior Salesforce developer focused on scalable integrations, process automation and LWC UIs. Experience in regulated industries and international delivery. Strong in Named/External Credentials, OAuth 2.0, SOQL tuning and security best practices."
+};
+
+export default developer;`
+
+  const ptCode = `// Desenvolvedor Salesforce Sênior — objeto de perfil (PT-BR)
+
+const developer = {
+  name: "Thiago Santos",
+  title: "Desenvolvedor Salesforce Sênior",
+  experienceYears: 6,
+  location: "Brasil (Remoto)",
+
+  sectors: ["Bancos", "Seguros", "Energia", "Automotivo"],
+
+  clouds: [
+    "Service Cloud",
+    "Sales Cloud",
+    "Financial Services Cloud",
+    "Marketing Cloud (integrações)"
+  ],
+
+  specialties: [
+    "Apex (triggers, batch, queueable, schedulable, test factories)",
+    "Lightning Web Components (LWC) e composição de UI",
+    "APIs REST/SOAP (integrações bidirecionais, mapeamento, retries)",
+    "OAuth 2.0, Auth Provider, Named/External Credentials",
+    "Custom Metadata/Settings para configuração e feature flags",
+    "Flow Builder (screen/record‑triggered) + Apex Invocable",
+    "Ajuste de SOQL/SOSL e limites governados",
+    "Modelo de segurança (profiles, permission sets, sharing rules)"
+  ],
+
+  toolingAndMethods: [
+    "Salesforce DX e VS Code",
+    "Git (branching, PRs, code review)",
+    "CI/CD",
+    "Postman/Insomnia",
+    "Jira (Scrum), Confluence",
+    "Data Loader/Workbench"
+  ],
+
+  integrationHighlights: [
+    "Conexão genérica com barramento via Custom Metadata + Keycloak (OAuth 2.0)",
+    "Consulta Octopus GraphQL (cliente/contrato/veículo)",
+    "WhatsApp via Zenvia -> Cases no Service Cloud",
+    "Sincronização Contract/Vehicle/Account/Contact + preenchimento em tempo real com Flow + Apex Invocable"
+  ],
+
+  processAutomationAndUX: [
+    "Preenchimento automático de campos (LWC/Flows) com dependências/validações",
+    "Regras de escalonamento (N1/N2/N3) e automações de Caso",
+    "Flexipages dinâmicas, related lists e formulários condicionais"
+  ],
+
+  achievements: [
+    "Integrações complexas eliminando trabalho manual e acelerando operações",
+    "Projetos internacionais com atuação presencial em NYC",
+    "Otimização de consultas/limites em orgs de alto volume",
+    "Modelo de Segurança/Sharing para múltiplas equipes",
+    "Frameworks reutilizáveis em Apex (conexões, logging, tratamento de erros)"
+  ],
+
+  languages: [
+    { language: "Português", level: "Nativo" },
+    { language: "Inglês", level: "Fluente" }
+  ],
+
+  summary:
+    "Dev Salesforce sênior focado em integrações escaláveis, automação de processos e UIs em LWC. Experiência em setores regulados e entrega internacional. Forte em Named/External Credentials, OAuth 2.0, otimização SOQL e segurança."
+};
+
+export default developer;`
+
+  const codeContent = language === 'en' ? enCode : ptCode
 
   return (
     <section id="about" className="py-12">
@@ -36,27 +174,19 @@ export default function About() {
             </div>
 
             {/* Code content */}
-            <div className="p-8 text-left space-y-3 text-base leading-relaxed" 
+            <div className="p-6 text-left text-sm leading-relaxed max-h-96 overflow-y-auto" 
                  style={{fontFamily:'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}}>
-              
-              <p><span className="text-gray-500">1</span>&nbsp;&nbsp;<span className="text-gray-500">// Desenvolvedor Salesforce Sênior</span></p>
-              <p><span className="text-gray-500">2</span>&nbsp;&nbsp;<span className="text-blue-400">const</span> <span className="text-yellow-300">developer</span> <span className="text-white">=</span> <span className="text-white">{'{'}</span></p>
-              <p><span className="text-gray-500">3</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">name</span><span className="text-white">:</span> <span className="text-green-300">'Thiago Santos'</span><span className="text-white">,</span></p>
-              <p><span className="text-gray-500">4</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">role</span><span className="text-white">:</span> <span className="text-green-300">'Senior Salesforce Developer'</span><span className="text-white">,</span></p>
-              <p><span className="text-gray-500">5</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">experience</span><span className="text-white">:</span> <span className="text-orange-400">6</span><span className="text-white">,</span></p>
-              <p><span className="text-gray-500">6</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">sectors</span><span className="text-white">:</span> <span className="text-white">[</span><span className="text-green-300">'Banking'</span><span className="text-white">,</span> <span className="text-green-300">'Insurance'</span><span className="text-white">,</span> <span className="text-green-300">'Energy'</span><span className="text-white">,</span> <span className="text-green-300">'Automotive'</span><span className="text-white">],</span></p>
-              <p><span className="text-gray-500">7</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">specialties</span><span className="text-white">:</span> <span className="text-white">[</span><span className="text-green-300">'Apex'</span><span className="text-white">,</span> <span className="text-green-300">'LWC'</span><span className="text-white">,</span> <span className="text-green-300">'REST/SOAP APIs'</span><span className="text-white">,</span> <span className="text-green-300">'OAuth 2.0'</span><span className="text-white">],</span></p>
-              <p><span className="text-gray-500">8</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">focus</span><span className="text-white">:</span> <span className="text-green-300">'Scalable solutions, process automation, team collaboration'</span><span className="text-white">,</span></p>
-              <p><span className="text-gray-500">9</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">achievements</span><span className="text-white">:</span> <span className="text-white">[</span></p>
-              <p><span className="text-gray-500">10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-300">'Complex integrations reducing manual work'</span><span className="text-white">,</span></p>
-              <p><span className="text-gray-500">11</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-300">'International projects (NYC onsite)'</span><span className="text-white">,</span></p>
-              <p><span className="text-gray-500">12</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-300">'Database performance optimization'</span><span className="text-white">,</span></p>
-              <p><span className="text-gray-500">13</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-300">'Security & sharing rules implementation'</span></p>
-              <p><span className="text-gray-500">14</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-white">],</span></p>
-              <p><span className="text-gray-500">15</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-cyan-300">currentLocation</span><span className="text-white">:</span> <span className="text-green-300">'Brazil (Remote)'</span></p>
-              <p><span className="text-gray-500">16</span>&nbsp;&nbsp;<span className="text-white">{'};'}</span></p>
-              <p><span className="text-gray-500">17</span></p>
-              <p><span className="text-gray-500">18</span>&nbsp;&nbsp;<span className="text-purple-400">export default</span> <span className="text-yellow-300">developer</span><span className="text-white">;</span></p>
+              <pre className="text-gray-300 whitespace-pre-wrap">
+                <code dangerouslySetInnerHTML={{
+                  __html: codeContent
+                    .replace(/\/\/ .*/g, '<span class="text-gray-500">$&</span>')
+                    .replace(/\b(const|export|default)\b/g, '<span class="text-blue-400">$1</span>')
+                    .replace(/\b(developer|name|title|experienceYears|location|sectors|clouds|specialties|toolingAndMethods|integrationHighlights|processAutomationAndUX|achievements|languages|summary)\b/g, '<span class="text-cyan-300">$1</span>')
+                    .replace(/"([^"]*)"/g, '<span class="text-green-300">"$1"</span>')
+                    .replace(/\b(\d+)\b/g, '<span class="text-orange-400">$1</span>')
+                    .replace(/([{}[\];,:])/g, '<span class="text-white">$1</span>')
+                }} />
+              </pre>
             </div>
 
             {/* Action buttons */}

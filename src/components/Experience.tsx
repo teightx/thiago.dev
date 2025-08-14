@@ -65,7 +65,7 @@ export default function Experience() {
         <h2 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
           <FaBriefcase className="text-primary" /> {t.experience.title}
         </h2>
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
           {experiences.map((exp) => {
             const position = t.experience.positions[exp.key]
             return (

@@ -39,14 +39,14 @@ export const translations = {
           ]
         },
         capgemini: {
-          title: 'Salesforce Developer',
+          title: 'Senior Salesforce Developer',
           company: 'Capgemini',
-          description: 'Development and optimization of Salesforce solutions',
+          description: 'Development of customized Salesforce solutions using Apex, LWC and Flow for major clients in financial, automotive, insurance and energy sectors.',
           highlights: [
-            'Migrated Salesforce Classic to Lightning (Aura → LWC), reducing load time from 6s to 3s',
-            'Implemented Einstein GPT recommendations for Knowledge Base, reducing human support needs',
-            'Developed Apex and LWC solutions including automations, sharing rules and security strategies',
-            'Collaborated with global teams to deliver scalable, optimized Salesforce solutions'
+            'Implementation and maintenance of complex integrations (REST/SOAP APIs) with external systems, using Named Credentials and OAuth 2.0 authentication',
+            'Process automation, reducing manual activities and increasing data reliability and quality',
+            'Collaboration in agile teams, actively participating in code reviews and mentoring less experienced developers',
+            'Active participation in daily Scrum meetings, collaborating with the team to align progress and overcome impediments in international projects, with on-site work in New York'
           ]
         },
         vibbra: {
@@ -117,14 +117,14 @@ export const translations = {
           ]
         },
         capgemini: {
-          title: 'Desenvolvedor Salesforce',
+          title: 'Desenvolvedor Salesforce Sênior',
           company: 'Capgemini',
-          description: 'Desenvolvimento e otimização de soluções Salesforce',
+          description: 'Desenvolvimento de soluções customizadas em Salesforce, utilizando Apex, LWC e Flow, para grandes clientes dos setores financeiro, automotivo, seguradoras e energia.',
           highlights: [
-            'Migração de Salesforce Classic para Lightning (Aura → LWC), reduzindo carregamento de 6s para 3s',
-            'Sistema de recomendação com Einstein GPT para artigos da Base de Conhecimento',
-            'Automação, regras de compartilhamento e estratégias de segurança com Apex e LWC',
-            'Colaboração com times globais para soluções escaláveis e otimizadas'
+            'Implementação e manutenção de integrações complexas (REST/SOAP APIs) com sistemas externos, empregando Named Credentials e autenticação OAuth 2.0',
+            'Automatização de processos, reduzindo atividades manuais e aumentando a confiabilidade e qualidade dos dados',
+            'Colaboração em equipes ágeis, participando ativamente de revisões de código e mentoria de desenvolvedores menos experientes',
+            'Atuei ativamente nas reuniões diárias de Scrum, colaborando com o time para alinhar progresso e superar impedimentos em projetos internacionais, com atuação presencial em Nova York'
           ]
         },
         vibbra: {

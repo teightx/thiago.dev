@@ -10,14 +10,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: '#00d4ff',
-          DEFAULT: '#0099cc',
-          dark: '#007acc',
+          light: '#5b9bd5',
+          DEFAULT: '#2e75b6',
+          dark: '#1f5582',
         },
         secondary: {
-          light: '#00ffff',
-          DEFAULT: '#00d4ff',
-          dark: '#0099cc',
+          light: '#70ad47',
+          DEFAULT: '#548235',
+          dark: '#375623',
         },
         dark: {
           lighter: '#122031',
@@ -25,13 +25,13 @@ module.exports = {
           DEFAULT: '#060e1a',
           dark: '#03070d',
         },
-        accent: '#00ffff',
-        success: '#00ff88',
+        accent: '#5b9bd5',
+        success: '#70ad47',
         neon: {
-          cyan: '#00ffff',
-          blue: '#0080ff',
-          purple: '#8000ff',
-          pink: '#ff0080',
+          cyan: '#5b9bd5',
+          blue: '#2e75b6',
+          purple: '#9966cc',
+          pink: '#d85193',
         },
         background: {
           dark: '#0a1524',

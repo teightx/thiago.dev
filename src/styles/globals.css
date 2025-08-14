@@ -46,13 +46,13 @@ body {
   border-radius: 9999px; 
 }
 .blob.blob1 { 
-  background: linear-gradient(45deg, #00d4ff, #0099cc); 
+  background: linear-gradient(45deg, #5b9bd5, #2e75b6); 
   top: -200px; 
   left: -200px; 
   animation: drift 60s ease-in-out infinite; 
 }
 .blob.blob2 { 
-  background: linear-gradient(45deg, #0066ff, #004499); 
+  background: linear-gradient(45deg, #1f5582, #548235); 
   bottom: -200px; 
   right: -200px; 
   animation: drift 80s ease-in-out infinite reverse; 
@@ -77,9 +77,9 @@ body {
 .glass { 
   backdrop-filter: blur(16px); 
   border-radius: 0.75rem; 
-  border: 1px solid rgba(0, 212, 255, 0.2); 
-  background: rgba(0, 20, 40, 0.4); 
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(91, 155, 213, 0.3); 
+  background: rgba(46, 117, 182, 0.1); 
+  box-shadow: 0 8px 32px rgba(91, 155, 213, 0.15);
 }
 
 [data-theme='light'] .glass { 
@@ -91,9 +91,9 @@ body {
 .chip { 
   backdrop-filter: blur(12px); 
   border-radius: 9999px; 
-  border: 1px solid rgba(0, 212, 255, 0.3); 
-  background: rgba(0, 20, 40, 0.3); 
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(91, 155, 213, 0.4); 
+  background: rgba(46, 117, 182, 0.2); 
+  box-shadow: 0 0 20px rgba(91, 155, 213, 0.25);
 }
 
 [data-theme='light'] .chip { 
