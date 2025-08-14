@@ -176,17 +176,116 @@ export default developer;`
             {/* Code content */}
             <div className="p-6 text-left text-sm leading-relaxed max-h-96 overflow-y-auto" 
                  style={{fontFamily:'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}}>
-              <pre className="text-gray-300 whitespace-pre-wrap">
-                <code dangerouslySetInnerHTML={{
-                  __html: codeContent
-                    .replace(/\/\/ .*/g, '<span style="color: #6b7280">$&</span>')
-                    .replace(/\b(const|export|default)\b/g, '<span style="color: #3b82f6">$1</span>')
-                    .replace(/\b(developer|name|title|experienceYears|location|sectors|clouds|specialties|toolingAndMethods|integrationHighlights|processAutomationAndUX|achievements|languages|summary)\b/g, '<span style="color: #06b6d4">$1</span>')
-                    .replace(/"([^"]*)"/g, '<span style="color: #4ade80">"$1"</span>')
-                    .replace(/\b(\d+)\b/g, '<span style="color: #fb923c">$1</span>')
-                    .replace(/([{}[\];,:])/g, '<span style="color: #e5e7eb">$1</span>')
-                }} />
-              </pre>
+              <div className="space-y-1">
+                <div className="text-gray-500">// Senior Salesforce Developer — profile object ({language === 'en' ? 'EN' : 'PT-BR'})</div>
+                <div className="text-gray-500"></div>
+                <div>
+                  <span className="text-blue-400">const</span>
+                  <span className="text-yellow-300"> developer</span>
+                  <span className="text-white"> = </span>
+                  <span className="text-white">{'{'}</span>
+                </div>
+                <div>
+                  <span className="text-cyan-300">  name</span>
+                  <span className="text-white">: </span>
+                  <span className="text-green-300">"Thiago Santos"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-cyan-300">  title</span>
+                  <span className="text-white">: </span>
+                  <span className="text-green-300">"{language === 'en' ? 'Senior Salesforce Developer' : 'Desenvolvedor Salesforce Sênior'}"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-cyan-300">  experienceYears</span>
+                  <span className="text-white">: </span>
+                  <span className="text-orange-400">6</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-cyan-300">  location</span>
+                  <span className="text-white">: </span>
+                  <span className="text-green-300">"{language === 'en' ? 'Brazil (Remote)' : 'Brasil (Remoto)'}"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div className="text-gray-500"></div>
+                <div>
+                  <span className="text-cyan-300">  sectors</span>
+                  <span className="text-white">: [</span>
+                  <span className="text-green-300">"{language === 'en' ? 'Banking' : 'Bancos'}"</span>
+                  <span className="text-white">, </span>
+                  <span className="text-green-300">"{language === 'en' ? 'Insurance' : 'Seguros'}"</span>
+                  <span className="text-white">, </span>
+                  <span className="text-green-300">"Energia"</span>
+                  <span className="text-white">, </span>
+                  <span className="text-green-300">"Automotivo"</span>
+                  <span className="text-white">],</span>
+                </div>
+                <div className="text-gray-500"></div>
+                <div>
+                  <span className="text-cyan-300">  specialties</span>
+                  <span className="text-white">: [</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "Apex, LWC, Flow Builder"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "REST/SOAP APIs, OAuth 2.0"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "Named/External Credentials"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "SOQL/SOSL, Governor Limits"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "Security & Sharing Rules"</span>
+                </div>
+                <div>
+                  <span className="text-white">  ],</span>
+                </div>
+                <div className="text-gray-500"></div>
+                <div>
+                  <span className="text-cyan-300">  achievements</span>
+                  <span className="text-white">: [</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "{language === 'en' ? 'Complex integrations eliminating manual work' : 'Integrações complexas eliminando trabalho manual'}"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "{language === 'en' ? 'International projects (NYC onsite)' : 'Projetos internacionais (presencial NYC)'}"</span>
+                  <span className="text-white">,</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "{language === 'en' ? 'High-volume orgs optimization' : 'Otimização em orgs de alto volume'}"</span>
+                </div>
+                <div>
+                  <span className="text-white">  ],</span>
+                </div>
+                <div className="text-gray-500"></div>
+                <div>
+                  <span className="text-cyan-300">  summary</span>
+                  <span className="text-white">:</span>
+                </div>
+                <div>
+                  <span className="text-green-300">    "{language === 'en' ? 'Senior Salesforce developer focused on scalable integrations, process automation and security best practices.' : 'Dev Salesforce sênior focado em integrações escaláveis, automação de processos e melhores práticas de segurança.'}"</span>
+                </div>
+                <div>
+                  <span className="text-white">{'};'}</span>
+                </div>
+                <div className="text-gray-500"></div>
+                <div>
+                  <span className="text-purple-400">export default</span>
+                  <span className="text-yellow-300"> developer</span>
+                  <span className="text-white">;</span>
+                </div>
+              </div>
             </div>
 
             {/* Action buttons */}
