@@ -4,7 +4,7 @@ import { useTheme } from '@/context/ThemeContext'
 import { translations } from '@/translations'
 import { FaBriefcase } from 'react-icons/fa'
 
-type ExperienceKey = 'engineerAccess' | 'capgemini' | 'vibbra' | 'sinai'
+type ExperienceKey = 'capgeminiCurrent' | 'engineerAccess' | 'capgemini' | 'vibbra' | 'sinai'
 
 interface Experience {
   key: ExperienceKey
@@ -16,8 +16,15 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    key: 'capgeminiCurrent',
+    period: "May 2025 - Present",
+    location: "São Paulo, Brasil",
+    type: "Remote",
+    technologies: "Apex, LWC, Flow Builder, REST/SOAP APIs, Named Credentials, OAuth 2.0, DevOps, Agile/SCRUM"
+  },
+  {
     key: 'engineerAccess',
-    period: "Nov 2024 - Present",
+    period: "Nov 2024 - May 2025",
     location: "New York City",
     type: "Remote",
     technologies: "Apex, LWC, Flow Builder, Marketing Cloud, Service Cloud"
