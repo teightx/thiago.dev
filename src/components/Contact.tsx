@@ -49,11 +49,11 @@ export default function Contact() {
               <span>Trailhead</span>
             </a>
             <a
-              href="mailto:teightx@icloud.com"
+              href="mailto:thiago.santosdev@hotmail.com"
               className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
             >
               <FaEnvelope className="text-2xl" />
-              <span>teightx@icloud.com</span>
+              <span>thiago.santosdev@hotmail.com</span>
             </a>
             <a
               href="https://wa.me/12016865610"

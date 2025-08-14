@@ -81,7 +81,7 @@ export default function Projects() {
         <h2 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex items-center justify-center gap-3">
           <FaFolderOpen className="text-primary" /> {t.projects.title}
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <div key={index} className="group rounded-xl glass shadow-glow hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 overflow-hidden">
               <WindowChrome />
