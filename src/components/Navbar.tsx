@@ -1,15 +1,33 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { useTheme } from '@/context/ThemeContext'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('hero')
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+      
+      // Track which section is in view
+      const sections = ['hero', 'about', 'projects', 'experience', 'contact']
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 150 && rect.bottom >= 150
+        }
+        return false
+      })
+      
+      if (currentSection) {
+        setActiveSection(currentSection)
+      }
+    }
+    
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -20,6 +38,15 @@ export default function Navbar() {
       element.scrollIntoView({ behavior: 'smooth' })
     }
     setIsMobileMenuOpen(false)
+    setActiveSection(sectionId)
+  }
+
+  const getTabClassName = (sectionId: string) => {
+    const baseClasses = "py-2 px-4 border-r border-white/10 cursor-pointer transition-colors whitespace-nowrap flex items-center gap-2"
+    if (activeSection === sectionId) {
+      return `${baseClasses} bg-gray-800/90 text-gray-200`
+    }
+    return `${baseClasses} bg-gray-900/60 text-gray-400 hover:text-gray-200`
   }
 
   return (
@@ -44,14 +71,6 @@ export default function Navbar() {
                   d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
           </svg>
         </button>
-
-        <div className="hidden md:flex space-x-8 text-sm">
-          <button onClick={() => scrollToSection('hero')} className="text-gray-300 hover:text-white transition-colors">Home</button>
-          <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-white transition-colors">About</button>
-          <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-white transition-colors">Projects</button>
-          <button onClick={() => scrollToSection('experience')} className="text-gray-300 hover:text-white transition-colors">Experience</button>
-          <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-white transition-colors">Contact</button>
-        </div>
       </div>
 
       {/* Mobile menu */}
@@ -73,33 +92,37 @@ export default function Navbar() {
           <div className="flex">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="py-2 px-4 bg-gray-800/90 border-r border-white/10 text-gray-200 flex items-center gap-2 whitespace-nowrap"
+              className={getTabClassName('hero')}
             >
-              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+              <span className="w-2 h-2 bg-primary rounded-full"></span>
               _hello.tsx
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors whitespace-nowrap"
+              className={getTabClassName('about')}
             >
+              <span className="w-2 h-2 bg-primary rounded-full opacity-50"></span>
               _about-me.js
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors whitespace-nowrap"
+              className={getTabClassName('projects')}
             >
+              <span className="w-2 h-2 bg-primary rounded-full opacity-50"></span>
               _projects.json
             </button>
             <button 
               onClick={() => scrollToSection('experience')}
-              className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors whitespace-nowrap"
+              className={getTabClassName('experience')}
             >
+              <span className="w-2 h-2 bg-primary rounded-full opacity-50"></span>
               _experience.md
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="py-2 px-4 bg-gray-900/60 border-r border-white/10 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors whitespace-nowrap"
+              className={getTabClassName('contact')}
             >
+              <span className="w-2 h-2 bg-primary rounded-full opacity-50"></span>
               _contact.yml
             </button>
           </div>

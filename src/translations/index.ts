@@ -27,6 +27,17 @@ export const translations = {
       present: 'Present',
       technologies: 'Technologies',
       positions: {
+        capgeminiCurrent: {
+          title: 'Senior Salesforce Developer',
+          company: 'Capgemini',
+          description: 'Development of customized Salesforce solutions using Apex, LWC and Flow for major clients in financial, automotive, insurance and energy sectors.',
+          highlights: [
+            'Implementation and maintenance of complex integrations (REST/SOAP APIs) with external systems, using Named Credentials and OAuth 2.0 authentication',
+            'Process automation, reducing manual activities and increasing data reliability and quality',
+            'Collaboration in agile teams, actively participating in code reviews and mentoring less experienced developers',
+            'Active participation in daily Scrum meetings, collaborating with the team to align progress and overcome impediments in international projects'
+          ]
+        },
         engineerAccess: {
           title: 'Senior Salesforce Developer',
           company: 'Engineer Access',
@@ -105,6 +116,17 @@ export const translations = {
       present: 'Presente',
       technologies: 'Tecnologias',
       positions: {
+        capgeminiCurrent: {
+          title: 'Desenvolvedor Salesforce Sênior',
+          company: 'Capgemini',
+          description: 'Desenvolvimento de soluções customizadas em Salesforce, utilizando Apex, LWC e Flow, para grandes clientes dos setores financeiro, automotivo, seguradoras e energia.',
+          highlights: [
+            'Implementação e manutenção de integrações complexas (REST/SOAP APIs) com sistemas externos, empregando Named Credentials e autenticação OAuth 2.0',
+            'Automatização de processos, reduzindo atividades manuais e aumentando a confiabilidade e qualidade dos dados',
+            'Colaboração em equipes ágeis, participando ativamente de revisões de código e mentoria de desenvolvedores menos experientes',
+            'Atuação ativa nas reuniões diárias de Scrum, colaborando com o time para alinhar progresso e superar impedimentos em projetos internacionais'
+          ]
+        },
         engineerAccess: {
           title: 'Desenvolvedor Salesforce Sênior',
           company: 'Engineer Access',

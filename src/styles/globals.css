@@ -52,7 +52,7 @@ body {
   animation: drift 60s ease-in-out infinite; 
 }
 .blob.blob2 { 
-  background: linear-gradient(45deg, #1f5582, #548235); 
+  background: linear-gradient(45deg, #1f5582, #2d4a66); 
   bottom: -200px; 
   right: -200px; 
   animation: drift 80s ease-in-out infinite reverse; 
@@ -123,4 +123,22 @@ body {
 
 [data-theme='light'] .text-secondary {
   color: rgb(0, 150, 200) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(91, 155, 213, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(91, 155, 213, 0.7);
 } 

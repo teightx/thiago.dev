@@ -179,12 +179,12 @@ export default developer;`
               <pre className="text-gray-300 whitespace-pre-wrap">
                 <code dangerouslySetInnerHTML={{
                   __html: codeContent
-                    .replace(/\/\/ .*/g, '<span class="text-gray-500">$&</span>')
-                    .replace(/\b(const|export|default)\b/g, '<span class="text-blue-400">$1</span>')
-                    .replace(/\b(developer|name|title|experienceYears|location|sectors|clouds|specialties|toolingAndMethods|integrationHighlights|processAutomationAndUX|achievements|languages|summary)\b/g, '<span class="text-cyan-300">$1</span>')
-                    .replace(/"([^"]*)"/g, '<span class="text-green-300">"$1"</span>')
-                    .replace(/\b(\d+)\b/g, '<span class="text-orange-400">$1</span>')
-                    .replace(/([{}[\];,:])/g, '<span class="text-white">$1</span>')
+                    .replace(/\/\/ .*/g, '<span style="color: #6b7280">$&</span>')
+                    .replace(/\b(const|export|default)\b/g, '<span style="color: #3b82f6">$1</span>')
+                    .replace(/\b(developer|name|title|experienceYears|location|sectors|clouds|specialties|toolingAndMethods|integrationHighlights|processAutomationAndUX|achievements|languages|summary)\b/g, '<span style="color: #06b6d4">$1</span>')
+                    .replace(/"([^"]*)"/g, '<span style="color: #4ade80">"$1"</span>')
+                    .replace(/\b(\d+)\b/g, '<span style="color: #fb923c">$1</span>')
+                    .replace(/([{}[\];,:])/g, '<span style="color: #e5e7eb">$1</span>')
                 }} />
               </pre>
             </div>

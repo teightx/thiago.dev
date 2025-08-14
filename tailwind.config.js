@@ -15,9 +15,9 @@ module.exports = {
           dark: '#1f5582',
         },
         secondary: {
-          light: '#70ad47',
-          DEFAULT: '#548235',
-          dark: '#375623',
+          light: '#7aa3d1',
+          DEFAULT: '#4a7ba7',
+          dark: '#2d4a66',
         },
         dark: {
           lighter: '#122031',
@@ -26,7 +26,7 @@ module.exports = {
           dark: '#03070d',
         },
         accent: '#5b9bd5',
-        success: '#70ad47',
+        success: '#4a7ba7',
         neon: {
           cyan: '#5b9bd5',
           blue: '#2e75b6',
