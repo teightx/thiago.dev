@@ -54,6 +54,8 @@ export default function Navbar() {
       isScrolled ? 'bg-black/70 backdrop-blur-md border-b border-white/10' : 'bg-black/50 backdrop-blur-md border-b border-white/10'
     }`}
     style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace' }}>
+      
+      {/* VS Code style header with thiago.dev on left and tabs on right */}
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <button onClick={() => scrollToSection('hero')} className="flex items-center space-x-2">
           <span className="text-lg md:text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -61,34 +63,8 @@ export default function Navbar() {
           </span>
         </button>
         
-        {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-gray-300 hover:text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                  d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10">
-          <div className="container mx-auto px-6 py-4 flex flex-col space-y-3">
-            <button onClick={() => scrollToSection('hero')} className="text-gray-300 hover:text-white transition-colors text-left">Home</button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-white transition-colors text-left">About</button>
-            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-white transition-colors text-left">Projects</button>
-            <button onClick={() => scrollToSection('experience')} className="text-gray-300 hover:text-white transition-colors text-left">Experience</button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-white transition-colors text-left">Contact</button>
-          </div>
-        </div>
-      )}
-
-      {/* VS Code Tabs */}
-      <div className="border-t border-white/10 bg-black/20">
-        <div className="container mx-auto px-6 flex text-xs overflow-x-auto">
+        {/* VS Code Tabs on right */}
+        <div className="hidden md:flex text-xs">
           <div className="flex">
             <button 
               onClick={() => scrollToSection('hero')}
@@ -127,7 +103,31 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden text-gray-300 hover:text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                  d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+          </svg>
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10">
+          <div className="container mx-auto px-6 py-4 flex flex-col space-y-3">
+            <button onClick={() => scrollToSection('hero')} className="text-gray-300 hover:text-white transition-colors text-left">Home</button>
+            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-white transition-colors text-left">About</button>
+            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-white transition-colors text-left">Projects</button>
+            <button onClick={() => scrollToSection('experience')} className="text-gray-300 hover:text-white transition-colors text-left">Experience</button>
+            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-white transition-colors text-left">Contact</button>
+          </div>
+        </div>
+      )}
     </header>
   )
 } 
