@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "src": "/thiago.dev/(.*)", "dest": "/thiago.dev/$1" }
+  ]
+}
