@@ -10,10 +10,20 @@ import notas from './assets/notas.webp'
 import notasRosa from './assets/notas-rosa.webp'
 import brilhoG from './assets/brilho-grande.webp'
 import brilhoGRosa from './assets/brilho-grande-rosa.webp'
-import brilhoP from './assets/brilho-pequeno.webp'
-import riscos from './assets/riscos.webp'
 import assinatura from './assets/assinatura.webp'
 import anarteThumb from './assets/anarte-thumb.webp'
+import busto from './assets/busto.webp'
+import logoMask from './assets/logo-mask.png'
+import d0 from './assets/doodle-0.png'
+import d1 from './assets/doodle-1.png'
+import d2 from './assets/doodle-2.png'
+import d3 from './assets/doodle-3.png'
+import d4 from './assets/doodle-4.png'
+import d5 from './assets/doodle-5.png'
+import d6 from './assets/doodle-6.png'
+import d7 from './assets/doodle-7.png'
+import d8 from './assets/doodle-8.png'
+import d9 from './assets/doodle-9.png'
 
 type Win = '' | 'case' | 'sys' | 'ai' | 'anarte' | 'exp' | 'spec'
 type Flip = 'n' | 'a' | 'b'
@@ -111,25 +121,52 @@ function useScrolled(offset = 40) {
   return scrolled
 }
 
+function useInView<T extends HTMLElement>(threshold = 0.35) {
+  const ref = useRef<T>(null)
+  const [seen, setSeen] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el || seen) return
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setSeen(true); io.disconnect() } }, { threshold })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [seen, threshold])
+  return [ref, seen] as const
+}
+
 /* ---------- peças pequenas ---------- */
 
-function Stamp({ id, size = 64, label }: { id: string; size?: number; label?: string }) {
+function Logo() {
+  return <span className="logo" role="img" aria-label="thiago.dev" style={{ WebkitMaskImage: `url(${logoMask})`, maskImage: `url(${logoMask})` }} />
+}
+
+function Seal({ text, id }: { text: string; id: string }) {
   return (
-    <svg width={size} height={size * 1.22} viewBox="0 0 120 146" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true} className="stamp-svg">
+    <svg viewBox="0 0 260 130" className="seal-svg" aria-hidden="true">
       <defs>
         <filter id={id}>
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={4} />
-          <feDisplacementMap in="SourceGraphic" scale={3} />
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves={2} seed={7} />
+          <feDisplacementMap in="SourceGraphic" scale={3.5} />
         </filter>
       </defs>
-      <g filter={`url(#${id})`} fill="none" stroke="currentColor" strokeWidth={6.5} strokeLinejoin="round">
-        <path d="M9 8 L 109 5 L 112 139 L 7 141 Z" />
+      <g filter={`url(#${id})`} fill="none" stroke="currentColor">
+        <rect x="6" y="6" width="248" height="118" rx="16" strokeWidth="6" />
+        <rect x="18" y="18" width="224" height="94" rx="9" strokeWidth="2.5" />
       </g>
-      <g filter={`url(#${id})`} fill="currentColor" textAnchor="middle" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 900, fontStretch: '62%', fontSize: 44 }}>
-        <text x="60" y="68">THI</text>
-        <text x="60" y="114">AGO</text>
+      <g filter={`url(#${id})`} fill="currentColor" textAnchor="middle">
+        <text x="130" y="76" style={{ fontFamily: 'Archivo, sans-serif', fontWeight: 900, fontStretch: '62%', fontSize: 48, letterSpacing: '0.02em' }}>{text}</text>
+        <text x="130" y="100" style={{ fontFamily: 'Martian Mono, monospace', fontWeight: 600, fontSize: 13, letterSpacing: '0.08em' }}>THIAGO.DEV</text>
       </g>
     </svg>
+  )
+}
+
+type DoodleProps = { src: string; x: number; y: number; w: number; h: number; d: number; cls?: string; delay?: number }
+function Doodle({ src, x, y, w, h, d, cls = '', delay = 0 }: DoodleProps) {
+  return (
+    <span className="lay doodle-wrap" style={{ left: x, top: y, width: w, height: h, '--d': d } as CSSProperties}>
+      <span className={`doodle ${cls}`} style={{ WebkitMaskImage: `url(${src})`, maskImage: `url(${src})`, animationDelay: `${delay}s` }} />
+    </span>
   )
 }
 
@@ -236,7 +273,7 @@ function CaseWin({ c }: { c: Content }) {
           {tab === 'res' && (
             <div className="stack-22">
               <p className="lead">{c.resText}</p>
-              <div className="metrics">{c.metrics.map((m, i) => <div key={i} className="metric"><div className="metric-v">{m.v}</div><small>{m.l}</small></div>)}</div>
+              <ul className="plus">{c.resItems.map((r) => <li key={r}>{r}</li>)}</ul>
             </div>
           )}
         </div>
@@ -245,7 +282,6 @@ function CaseWin({ c }: { c: Content }) {
             <div className="code-bar"><span>PaymentGateway.cls</span><span className="muted">Apex</span></div>
             <pre><code>{highlight(c.code)}</code></pre>
           </div>
-          <figcaption className="hand">{c.codeNote}</figcaption>
         </figure>
       </div>
     </div>
@@ -419,6 +455,41 @@ function SpecWin({ c }: { c: Content }) {
   )
 }
 
+function Services({ c }: { c: Content }) {
+  const [fmt, setFmt] = useState(c.formats[0].id)
+  const [z, setZ] = useState<Flip>('n')
+  const [ref, seen] = useInView<HTMLElement>()
+  useEffect(() => { if (seen) setZ('a') }, [seen])
+  const f = c.formats.find((x) => x.id === fmt) ?? c.formats[0]
+  const pick = (id: string) => { setFmt(id); setZ((v) => flip(v)) }
+  return (
+    <section id="services" className="sec-band services" ref={ref}>
+      <div className="wrap sec">
+        <div className="svc-head">
+          <h2 className="h-sec">{c.svcTitle}</h2>
+          <p className="lead muted maxw-460">{c.svcLead}</p>
+        </div>
+        <div className="svc-tabs" role="group" aria-label={c.svcTitle}>
+          {c.formats.map((x) => <button key={x.id} type="button" className="tab" aria-pressed={x.id === fmt} onClick={() => pick(x.id)}>{x.tab}</button>)}
+        </div>
+        <div className="svc-panel">
+          <div className="svc-body fade" data-z={z === 'n' ? 'a' : z} aria-live="polite">
+            <h3 className="svc-title">{f.title}</h3>
+            <p className="lead">{f.lead}</p>
+            <ul className="plus">{f.items.map((i) => <li key={i}>{i}</li>)}</ul>
+            <div className="row-wrap">
+              <a className="btn btn-cyan btn-lg" href={`mailto:${EMAIL}?subject=${encodeURIComponent(`${f.subject} | thiago.dev`)}`}>{f.cta}</a>
+            </div>
+          </div>
+          <button type="button" className="seal" data-z={z} onClick={() => setZ((v) => flip(v))} aria-label={c.seal}>
+            <Seal text={c.seal} id="seal-ink" />
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ---------- página ---------- */
 
 export default function App() {
@@ -439,13 +510,10 @@ export default function App() {
   const [z3, setZ3] = useState<Flip>('n')
   const [win, setWin] = useState<Win>('')
   const [copied, setCopied] = useState<'' | 'ok' | 'fail'>('')
-  const [stamps, setStamps] = useState(0)
-  const [zs, setZs] = useState<Flip>('n')
 
   const zap = () => { setZ(flip(z)); setPink(!pink); setZapped(true) }
   const poke = () => { setZ2(flip(z2)); setBubble((bubble + 1) % c.bubbles.length) }
   const nextTalk = () => { setZ3(flip(z3)); setTalk((talk + 1) % c.talk.length) }
-  const stamp = () => { setZs(flip(zs)); setStamps((n) => Math.min(n + 1, 6)) }
   const copyEmail = useCallback(() => {
     try { navigator.clipboard.writeText(EMAIL).then(() => setCopied('ok'), () => setCopied('fail')) } catch { setCopied('fail') }
   }, [])
@@ -459,10 +527,6 @@ export default function App() {
     spec: { file: c.winFiles.spec, title: c.specTitle },
   }
   const wm = win ? winMeta[win] : { file: '', title: '' }
-  const imprints = [
-    { x: -150, y: -30, r: -14 }, { x: 132, y: 10, r: 9 }, { x: -96, y: 70, r: 6 },
-    { x: 180, y: -60, r: -20 }, { x: -210, y: 40, r: 16 }, { x: 70, y: 86, r: -8 },
-  ].slice(0, stamps)
   const tick = [...c.clients, ...c.clients]
 
   return (
@@ -471,8 +535,8 @@ export default function App() {
 
       <header className={scrolled ? 'top top-compact' : 'top'}>
         <div className="top-in">
-          <a href="#top" className="stamp-link" aria-label="Thiago Santos">
-            <span className="stamp stamp-drop"><Stamp id="ink-top" size={58} /></span>
+          <a href="#top" className="logo-link" aria-label="Thiago Santos, thiago.dev">
+            <Logo />
           </a>
           <nav aria-label={c.navLabel}>
             <ul className="nav">{c.nav.map((n) => <li key={n.id}><a className="nl" href={`#${n.id}`}>{n.label}</a></li>)}</ul>
@@ -531,7 +595,7 @@ export default function App() {
                 <p className="headline">{c.headline}</p>
                 <div className="row-wrap">
                   <a className="btn btn-cyan" href="#work">{c.cta1}</a>
-                  <a className="btn btn-o" href="#contact">{c.cta2}</a>
+                  <a className="btn btn-o" href="#services">{c.ctaQuote}</a>
                 </div>
               </div>
             </div>
@@ -593,6 +657,8 @@ export default function App() {
           </div>
         </section>
 
+        <Services c={c} />
+
         <section id="about" className="sec-band">
           <div className="wrap sec about">
             <div className="about-copy">
@@ -608,15 +674,19 @@ export default function App() {
             <figure className="art" ref={artRef}>
               <div className="art-host">
                 <div className="art-halo halftone" aria-hidden="true" />
-                <img className="lay art-scratch" style={depth(-8)} src={riscos} alt="" aria-hidden="true" />
-                <span className="lay art-fx art-bolts" style={depth(22)} aria-hidden="true"><span className="zap" data-z={z2}><img className="neon float" src={raios} alt="" /></span></span>
-                <span className="lay art-fx art-s1" style={depth(32)} aria-hidden="true"><span className="zap" data-z={z2}><img className="neon twinkle" src={brilhoP} alt="" /></span></span>
-                <button type="button" className="lay art-head" style={depth(9)} onClick={poke} aria-label={c.illusLabel}>
-                  <span className="boop" data-z={z2}><img className="headimg" src={retrato} alt="" /></span>
+                <Doodle src={d3} x={-30} y={300} w={193} h={37} d={-6} cls="drift" />
+                <Doodle src={d4} x={452} y={430} w={156} h={39} d={-4} cls="drift b" />
+                <Doodle src={d2} x={150} y={4} w={84} h={30} d={-5} cls="drift" delay={-3} />
+                <button type="button" className="lay art-bust" style={depth(9)} onClick={poke} aria-label={c.illusLabel}>
+                  <span className="boop" data-z={z2}><img className="headimg" src={busto} alt="" /></span>
                 </button>
-                <img className="lay art-sign" style={depth(9)} src={assinatura} alt="" aria-hidden="true" />
-                <span className="lay art-fx art-notes" style={depth(22)} aria-hidden="true"><span className="zap" data-z={z2}><img className="neon float b" src={notas} alt="" /></span></span>
-                <span className="lay art-fx art-big" style={depth(30)} aria-hidden="true"><span className="zap" data-z={z2}><img className="neon twinkle" src={brilhoG} alt="" /></span></span>
+                <Doodle src={d0} x={0} y={36} w={124} h={106} d={24} cls="spin" />
+                <Doodle src={d1} x={524} y={10} w={87} h={78} d={20} cls="spin b" />
+                <Doodle src={d5} x={44} y={232} w={36} h={36} d={16} cls="twk" />
+                <Doodle src={d6} x={14} y={470} w={50} h={59} d={30} cls="twk" delay={-1} />
+                <Doodle src={d7} x={560} y={292} w={55} h={67} d={28} cls="twk" delay={-.5} />
+                <Doodle src={d8} x={544} y={520} w={59} h={78} d={32} cls="twk" delay={-1.6} />
+                <Doodle src={d9} x={70} y={572} w={35} h={41} d={26} cls="twk" delay={-2.2} />
                 <div className="bubble bubble-art lay" style={depth(14)} aria-live="polite">
                   <span className="bubble-txt note" data-z={z2}>{c.bubbles[bubble]}</span>
                 </div>
@@ -656,6 +726,7 @@ export default function App() {
             <div className="talk" ref={talkRef}>
               <span className="talk-head-wrap lay" style={depth(12)}>
                 <span className="boop" data-z={z3}><img className="talk-head" src={retrato} alt="" aria-hidden="true" /></span>
+                <img className="talk-sign" src={assinatura} alt="" aria-hidden="true" />
               </span>
               <button type="button" className="bubble bubble-talk lay" style={depth(-8)} onClick={nextTalk} title={c.talkLabel}>
                 <span className="sign"><WaveText text={c.talk[talk]} k={talk} /></span>
@@ -671,15 +742,6 @@ export default function App() {
               <li><a href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a></li>
               <li><a href={LINKS.trailhead} target="_blank" rel="noreferrer">Trailhead</a></li>
             </ul>
-            <div className="stamp-zone">
-              {imprints.map((p, i) => (
-                <span key={i} className="imprint" aria-hidden="true" style={{ transform: `translate(${p.x}px, ${p.y}px) rotate(${p.r}deg)` }}><Stamp id={`ink-i${i}`} size={70} /></span>
-              ))}
-              <button type="button" className="stamp-btn" onClick={stamp} aria-label={c.stampLabel}>
-                <span className="stamp-press" data-z={zs}><Stamp id="ink-foot" size={92} /></span>
-              </button>
-              <span className="hand-sm">{c.stampHint}</span>
-            </div>
             <p className="foot small muted"><span>© 2026 Thiago Santos</span><span>{c.credit} <a className="nl" href={LINKS.anartePost} target="_blank" rel="noreferrer">Anarte</a></span></p>
           </div>
         </section>
