@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from 'react'
+import { flushSync } from 'react-dom'
 import { content, EMAIL, LINKS, type Content, type Lang } from './content'
 import foto from './assets/foto.webp'
 import cidade from './assets/cidade.webp'
@@ -66,6 +67,38 @@ function useParallax<T extends HTMLElement>() {
   return ref
 }
 
+type Theme = 'dark' | 'light'
+function useTheme(): [Theme, (e: MouseEvent<HTMLButtonElement>) => void] {
+  const [theme, setTheme] = useState<Theme>(() => {
+    try {
+      const saved = localStorage.getItem('theme')
+      if (saved === 'dark' || saved === 'light') return saved
+    } catch { /* ok */ }
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+  })
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#060B1E' : '#EEF3FB')
+    try { localStorage.setItem('theme', theme) } catch { /* ok */ }
+  }, [theme])
+  const toggle = (e: MouseEvent<HTMLButtonElement>) => {
+    const next: Theme = theme === 'dark' ? 'light' : 'dark'
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => { ready: Promise<void> } }
+    if (!doc.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setTheme(next); return }
+    const x = e.clientX || window.innerWidth - 40
+    const y = e.clientY || 40
+    const r = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
+    const t = doc.startViewTransition(() => { flushSync(() => setTheme(next)) })
+    t.ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
+        { duration: 650, easing: 'cubic-bezier(.2,.8,.2,1)', pseudoElement: '::view-transition-new(root)' },
+      )
+    }).catch(() => { /* ok */ })
+  }
+  return [theme, toggle]
+}
+
 function useScrolled(offset = 40) {
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
@@ -110,6 +143,29 @@ function Dim({ label }: { label: string }) {
 
 function Chevron() {
   return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M5 2l6 6-6 6" /></svg>
+}
+
+function WaveText({ text, k }: { text: string; k: number }) {
+  let n = 0
+  const words = text.split(' ')
+  return (
+    <>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true" className="wave-txt">
+        {words.map((w, wi) => (
+          <span key={`${k}-w${wi}`}>
+            <span className="word">
+              {Array.from(w).map((ch) => {
+                const i = n++
+                return <span key={`${k}-${i}`} className="ltr" style={{ '--i': i } as CSSProperties}>{ch}</span>
+              })}
+            </span>
+            {wi < words.length - 1 ? ' ' : null}
+          </span>
+        ))}
+      </span>
+    </>
+  )
 }
 
 /* ---------- janela (dialog nativo) ---------- */
@@ -185,7 +241,7 @@ function CaseWin({ c }: { c: Content }) {
           )}
         </div>
         <figure className="code-fig">
-          <div className="code">
+          <div className="code dark-obj">
             <div className="code-bar"><span>PaymentGateway.cls</span><span className="muted">Apex</span></div>
             <pre><code>{highlight(c.code)}</code></pre>
           </div>
@@ -281,7 +337,7 @@ function AiWin({ c }: { c: Content }) {
         <h3 className="h-win">{c.cards[2].title}</h3>
         <div className="stack-10 maxw-460"><p className="muted">{c.aiText}</p><p className="muted small">{c.aiHint}</p></div>
       </div>
-      <div className="tv-row">
+      <div className="tv-row dark-obj">
         <div className="tv">
           <div className="tv-screen glitch" data-z={z} aria-live="polite">
             <div className="tv-top"><span>{c.channel} {d.no}</span><span>{d.where}</span></div>
@@ -328,7 +384,7 @@ function ExpWin({ c }: { c: Content }) {
   return (
     <div className="stack-24">
       <div className="win-head"><h3 className="h-win">{c.expTitle}</h3><p className="muted small">{c.expHint}</p></div>
-      <div className="board">
+      <div className="board dark-obj">
         <div className="board-head rowgrid hide-sm">{c.expHead.map((h) => <span key={h}>{h}</span>)}</div>
         {c.revs.map((r) => (
           <div key={r.id} className="board-row">
@@ -367,16 +423,20 @@ function SpecWin({ c }: { c: Content }) {
 
 export default function App() {
   const [lang, setLang] = useLang()
+  const [theme, toggleTheme] = useTheme()
   const c = content[lang] as Content
   const scrolled = useScrolled()
   const heroRef = useParallax<HTMLElement>()
   const artRef = useParallax<HTMLElement>()
+  const talkRef = useParallax<HTMLDivElement>()
 
   const [z, setZ] = useState<Flip>('n')
   const [pink, setPink] = useState(false)
   const [zapped, setZapped] = useState(false)
   const [z2, setZ2] = useState<Flip>('n')
   const [bubble, setBubble] = useState(0)
+  const [talk, setTalk] = useState(0)
+  const [z3, setZ3] = useState<Flip>('n')
   const [win, setWin] = useState<Win>('')
   const [copied, setCopied] = useState<'' | 'ok' | 'fail'>('')
   const [stamps, setStamps] = useState(0)
@@ -384,6 +444,7 @@ export default function App() {
 
   const zap = () => { setZ(flip(z)); setPink(!pink); setZapped(true) }
   const poke = () => { setZ2(flip(z2)); setBubble((bubble + 1) % c.bubbles.length) }
+  const nextTalk = () => { setZ3(flip(z3)); setTalk((talk + 1) % c.talk.length) }
   const stamp = () => { setZs(flip(zs)); setStamps((n) => Math.min(n + 1, 6)) }
   const copyEmail = useCallback(() => {
     try { navigator.clipboard.writeText(EMAIL).then(() => setCopied('ok'), () => setCopied('fail')) } catch { setCopied('fail') }
@@ -402,6 +463,7 @@ export default function App() {
     { x: -150, y: -30, r: -14 }, { x: 132, y: 10, r: 9 }, { x: -96, y: 70, r: 6 },
     { x: 180, y: -60, r: -20 }, { x: -210, y: 40, r: 16 }, { x: 70, y: 86, r: -8 },
   ].slice(0, stamps)
+  const tick = [...c.clients, ...c.clients]
 
   return (
     <div className="page">
@@ -410,18 +472,23 @@ export default function App() {
       <header className={scrolled ? 'top top-compact' : 'top'}>
         <div className="top-in">
           <a href="#top" className="stamp-link" aria-label="Thiago Santos">
-            <span className="stamp stamp-drop"><Stamp id="ink-top" size={scrolled ? 44 : 60} /></span>
+            <span className="stamp stamp-drop"><Stamp id="ink-top" size={58} /></span>
           </a>
           <nav aria-label={c.navLabel}>
             <ul className="nav">{c.nav.map((n) => <li key={n.id}><a className="nl" href={`#${n.id}`}>{n.label}</a></li>)}</ul>
           </nav>
           <div className="top-tools">
+            <button type="button" className="theme-btn" onClick={toggleTheme} aria-label={theme === 'dark' ? c.toLight : c.toDark}>
+              {theme === 'dark'
+                ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+                : <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" /></svg>}
+            </button>
             <div className="lang" role="group" aria-label={c.langLabel}>
               <span className="knob" data-lang={lang} aria-hidden="true" />
               <button type="button" aria-pressed={lang === 'pt'} onClick={() => setLang('pt')}>PT</button>
               <button type="button" aria-pressed={lang === 'en'} onClick={() => setLang('en')}>EN</button>
             </div>
-            <a className="btn btn-cyan btn-sm" href={CV_URL} target="_blank" rel="noreferrer">{c.cv}</a>
+            <a className="btn btn-cyan btn-sm" href={CV_URL} target="_blank" rel="noreferrer"><span className="cv-long">{c.cv}</span><span className="cv-short">CV</span></a>
           </div>
         </div>
       </header>
@@ -441,11 +508,16 @@ export default function App() {
             </div>
             <span className="fx fx-notes lay" style={depth(30)} aria-hidden="true"><span className="zap" data-z={z}><img className={pink ? 'neon neon-pink float b' : 'neon float b'} src={pink ? notasRosa : notas} alt="" /></span></span>
             <span className="fx fx-spark lay" style={depth(36)} aria-hidden="true"><img className={pink ? 'neon neon-pink twinkle' : 'neon twinkle'} src={pink ? brilhoGRosa : brilhoG} alt="" /></span>
-            <button type="button" className="fx fx-bolts lay" style={depth(30)} onClick={zap} aria-label={c.zapLabel}>
-              {!zapped && <span className="ring" aria-hidden="true" />}
+            <button type="button" className={zapped ? 'fx fx-bolts lay' : 'fx fx-bolts lay nudge'} style={depth(30)} onClick={zap} aria-label={c.zapLabel}>
               <span className="zap" data-z={z}><img className={pink ? 'neon neon-pink float' : 'neon float'} src={pink ? raiosRosa : raios} alt="" /></span>
               <span className="popn" data-z={z} aria-hidden="true">{c.zapPop}</span>
             </button>
+            {!zapped && (
+              <span className="zap-hint" aria-hidden="true">
+                <svg width="46" height="26" viewBox="0 0 46 26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M44 18 C 30 22, 16 18, 6 8" /><path d="M4 18 L 5 7 L 15 6" /></svg>
+                {c.zapHint}
+              </span>
+            )}
           </div>
 
           <div className="hero-left wrap">
@@ -461,7 +533,6 @@ export default function App() {
                   <a className="btn btn-cyan" href="#work">{c.cta1}</a>
                   <a className="btn btn-o" href="#contact">{c.cta2}</a>
                 </div>
-                <p className="hand">{c.zapHint}</p>
               </div>
             </div>
           </div>
@@ -473,16 +544,9 @@ export default function App() {
           </div>
         </div>
 
-        <div className="led" role="region" aria-label={`${c.stackLabel}: ${c.stack.join(', ')}`}>
-          <div className="track" aria-hidden="true">
-            {[...c.stack, ...c.stack].map((s, i) => <span key={i} className={i % 2 ? 'led-item pink' : 'led-item cyan'}>{s}<span className="led-sq" /></span>)}
-          </div>
-        </div>
-
         <section id="work" className="wrap sec">
           <div className="sec-head">
             <h2 className="h-sec">{c.workTitle}</h2>
-            <p className="hand">{c.workHint}</p>
           </div>
           <div className="cards">
             {c.cards.map((card) => (
@@ -497,20 +561,20 @@ export default function App() {
                     </span>
                   )}
                   {card.id === 'sys' && (
-                    <svg width="260" height="160" viewBox="0 0 260 160" fill="none">
-                      <line className="dash" x1="130" y1="80" x2="130" y2="22" stroke="#5BD6DC" strokeWidth="1.5" />
-                      <line className="dash" x1="130" y1="80" x2="130" y2="138" stroke="#5BD6DC" strokeWidth="1.5" />
-                      <line className="dash" x1="130" y1="80" x2="34" y2="80" stroke="#FF5FD2" strokeWidth="1.5" />
-                      <line className="dash" x1="130" y1="80" x2="226" y2="80" stroke="#5BD6DC" strokeWidth="1.5" />
-                      <rect x="96" y="60" width="68" height="40" fill="#060B1E" stroke="#EAF6FF" strokeWidth="1.5" />
-                      <rect x="108" y="6" width="44" height="24" fill="#060B1E" stroke="#5BD6DC" strokeWidth="1.5" />
-                      <rect x="108" y="130" width="44" height="24" fill="#060B1E" stroke="#5BD6DC" strokeWidth="1.5" />
-                      <rect x="6" y="68" width="44" height="24" fill="#060B1E" stroke="#FF5FD2" strokeWidth="1.5" />
-                      <rect x="210" y="68" width="44" height="24" fill="#060B1E" stroke="#5BD6DC" strokeWidth="1.5" />
+                    <svg className="mini-sys" width="260" height="160" viewBox="0 0 260 160" fill="none">
+                      <line className="dash s-a" x1="130" y1="80" x2="130" y2="22" />
+                      <line className="dash s-a" x1="130" y1="80" x2="130" y2="138" />
+                      <line className="dash s-p" x1="130" y1="80" x2="34" y2="80" />
+                      <line className="dash s-a" x1="130" y1="80" x2="226" y2="80" />
+                      <rect className="f-bg s-i" x="96" y="60" width="68" height="40" />
+                      <rect className="f-bg s-a" x="108" y="6" width="44" height="24" />
+                      <rect className="f-bg s-a" x="108" y="130" width="44" height="24" />
+                      <rect className="f-bg s-p" x="6" y="68" width="44" height="24" />
+                      <rect className="f-bg s-a" x="210" y="68" width="44" height="24" />
                     </svg>
                   )}
                   {card.id === 'ai' && (
-                    <span className="mini-tv">
+                    <span className="mini-tv dark-obj">
                       <span className="ail">AWS Comprehend</span>
                       <span className="ail" style={{ animationDelay: '2s' }}>Einstein GPT</span>
                       <span className="ail" style={{ animationDelay: '4s' }}>Claude</span>
@@ -557,58 +621,66 @@ export default function App() {
                   <span className="bubble-txt note" data-z={z2}>{c.bubbles[bubble]}</span>
                 </div>
               </div>
-              <figcaption className="art-cap">
-                <span className="hand-sm">{c.illusHint}</span>
-                <span className="small muted">{c.illusCredit} <a className="nl" href={LINKS.anartePost} target="_blank" rel="noreferrer">Anarte</a></span>
-              </figcaption>
+              <figcaption className="art-cap"><span className="hand-sm">{c.illusHint}</span></figcaption>
             </figure>
           </div>
         </section>
 
-        <section id="companies" className="wrap sec companies">
-          <h2 className="h-sec center">{c.compTitle}</h2>
-          <ul className="employers">
-            {c.employers.map((e) => (
-              <li key={e.name} className="employer">
-                <span className="employer-name">{e.name}</span>
-                <span className="employer-role">{e.role}</span>
-                <span className="small muted">{e.when}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="small muted center">{c.clientsLabel}</p>
-          <ul className="clients">{c.clients.map((cl, i) => <li key={cl} className="wm" style={{ animationDelay: `${i * 0.9}s` }}>{cl}</li>)}</ul>
+        <section id="companies" className="companies">
+          <div className="wrap sec-top">
+            <h2 className="h-sec center">{c.compTitle}</h2>
+            <ul className="employers">
+              {c.employers.map((e) => (
+                <li key={e.name} className="employer">
+                  <span className="employer-name">{e.name}</span>
+                  <span className="employer-role">{e.role}</span>
+                  <span className="small muted">{e.when}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="led dark-obj" role="region" aria-label={`${c.clientsLabel}: ${c.clients.join(', ')}`}>
+            <span className="led-label">{c.clientsLabel}</span>
+            <div className="led-view">
+              <div className="track" aria-hidden="true">
+                {tick.map((s, i) => <span key={i} className={i % 2 ? 'led-item pink' : 'led-item cyan'}>{s}<span className="led-sq" /></span>)}
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="contact" className="contact">
           <div className="bpgrid contact-grid" aria-hidden="true" />
           <div className="wrap contact-in">
-            <div className="talk">
-              <img className="talk-head" src={retrato} alt="" aria-hidden="true" />
-              <div className="bubble bubble-talk"><h2 className="sign">{c.contactTitle}</h2></div>
+            <h2 className="sr-only">{c.contactTitle}</h2>
+            <div className="talk" ref={talkRef}>
+              <span className="talk-head-wrap lay" style={depth(12)}>
+                <span className="boop" data-z={z3}><img className="talk-head" src={retrato} alt="" aria-hidden="true" /></span>
+              </span>
+              <button type="button" className="bubble bubble-talk lay" style={depth(-8)} onClick={nextTalk} title={c.talkLabel}>
+                <span className="sign"><WaveText text={c.talk[talk]} k={talk} /></span>
+              </button>
             </div>
             <p className="muted center maxw-48">{c.contactLine}</p>
             <div className="row-wrap center-row">
               <a className="btn btn-cyan btn-lg" href={`mailto:${EMAIL}`}>{c.cta2}</a>
               <button type="button" className="btn btn-o btn-lg" onClick={copyEmail} aria-live="polite">{copied === 'ok' ? c.copied : copied === 'fail' ? c.copyFail : c.copy}</button>
-              <a className="btn btn-o btn-lg" href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
-            <div className="links">
-              <div><small>E-mail</small><a className="nl" href={`mailto:${EMAIL}`}>{EMAIL}</a></div>
-              <div><small>LinkedIn</small><a className="nl" href={LINKS.linkedin} target="_blank" rel="noreferrer">in/thiagosantosdev</a></div>
-              <div><small>GitHub</small><a className="nl" href={LINKS.github} target="_blank" rel="noreferrer">github.com/teightx</a></div>
-              <div><small>Trailhead</small><a className="nl" href={LINKS.trailhead} target="_blank" rel="noreferrer">trailblazer/teightx</a></div>
-            </div>
+            <ul className="pills">
+              <li><a href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
+              <li><a href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a></li>
+              <li><a href={LINKS.trailhead} target="_blank" rel="noreferrer">Trailhead</a></li>
+            </ul>
             <div className="stamp-zone">
               {imprints.map((p, i) => (
                 <span key={i} className="imprint" aria-hidden="true" style={{ transform: `translate(${p.x}px, ${p.y}px) rotate(${p.r}deg)` }}><Stamp id={`ink-i${i}`} size={70} /></span>
               ))}
-              <button type="button" className="stamp-btn" data-z={zs} onClick={stamp} aria-label={c.stampLabel}>
+              <button type="button" className="stamp-btn" onClick={stamp} aria-label={c.stampLabel}>
                 <span className="stamp-press" data-z={zs}><Stamp id="ink-foot" size={92} /></span>
               </button>
               <span className="hand-sm">{c.stampHint}</span>
             </div>
-            <p className="foot small muted">© 2026 Thiago Santos</p>
+            <p className="foot small muted"><span>© 2026 Thiago Santos</span><span>{c.credit} <a className="nl" href={LINKS.anartePost} target="_blank" rel="noreferrer">Anarte</a></span></p>
           </div>
         </section>
       </main>
