@@ -1,66 +1,23 @@
-# Thiago Santos - Portfolio
+# thiago.dev
 
-![Next.js](https://img.shields.io/badge/Next.js-14-black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
-![Tailwind](https://img.shields.io/badge/Tailwind-3.0-38B2AC)
+Portfólio de Thiago Santos, Arquiteto Salesforce. Vite + React + TypeScript, publicado no GitHub Pages em https://teightx.github.io/thiago.dev/.
 
-Meu portfólio profissional desenvolvido com tecnologias modernas e boas práticas de desenvolvimento.
-
-## 🚀 Tecnologias
-
-- **Framework**: Next.js 14
-- **Linguagem**: TypeScript
-- **Estilização**: Tailwind CSS
-- **Animações**: Framer Motion
-- **Deploy**: Vercel
-
-## ✨ Features
-
-- Design responsivo
-- Tema escuro
-- Internacionalização (PT/EN)
-- Animações suaves
-- Integração com GitHub
-- Seção de experiência profissional
-- Showcase de projetos
-- Formulário de contato
-
-## 🛠️ Experiência Profissional
-
-- Salesforce Developer na Engineer Access
-- Salesforce Developer na Capgemini
-- Desenvolvedor Freelance na Vibbra!
-- Full Stack Developer no Núcleo de Ensino Técnico Sinai
-
-## 💻 Projetos em Destaque
-
-- MyMoneyBox (Flutter & React Native)
-- LWC Superbadge
-- API Rest Spring Boot
-- Weather App
-- E outros projetos em JavaScript e Salesforce
-
-## 🔧 Instalação e Uso
+## Rodar localmente
 
 ```bash
-# Clone o repositório
-git clone https://github.com/teightx/Thiago.Dev.git
-
-# Entre na pasta
-cd Thiago.Dev
-
-# Instale as dependências
 npm install
-
-# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-## 📫 Contato
+## Publicar
 
-- LinkedIn: [Thiago Santos](https://linkedin.com/in/teight)
-- GitHub: [@teightx](https://github.com/teightx)
+1. Substitua o conteúdo do repositório `teightx/thiago.dev` por esta pasta (apague os arquivos antigos do Next.js, inclusive `.github/workflows/nextjs.yml`).
+2. Em **Settings › Pages**, deixe **Source = GitHub Actions**.
+3. `git add -A && git commit -m "Novo portfólio" && git push`. O workflow `.github/workflows/deploy.yml` faz o build e publica sozinho.
 
-## 📝 Licença
+## Onde editar
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes. 
+- Todo o texto, em português e inglês: `src/content.ts`.
+- Pendências marcadas com colchetes em `src/content.ts`: como você usa IA no dia a dia, as métricas do case e o link do post da Anarte (`LINKS.anartePost`).
+- Currículo em PDF: `public/cv.pdf`.
+- Imagens: `src/assets/`.
