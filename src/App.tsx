@@ -426,7 +426,6 @@ function ExpWin({ c }: { c: Content }) {
         {c.revs.map((r) => (
           <div key={r.id} className="board-row">
             <button type="button" className="row rowgrid" aria-expanded={open === r.id} onClick={() => setOpen(open === r.id ? null : r.id)}>
-              <span className="hide-sm cyan wide">{r.period}</span>
               <span><b className="row-company">{r.company}</b><span className="muted">{r.role}</span></span>
               <span className="hide-sm">{r.client}</span>
               <span className={r.live ? 'status live' : 'status'}><span className={r.live ? 'sdot blink' : 'sdot'} />{r.live ? c.ongoing : c.done}</span>
@@ -709,7 +708,6 @@ export default function App() {
                 <li key={e.name} className="employer">
                   <span className="employer-name">{e.name}</span>
                   <span className="employer-role">{e.role}</span>
-                  <span className="small muted">{e.when}</span>
                 </li>
               ))}
             </ul>

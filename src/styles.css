@@ -471,7 +471,7 @@ dialog.win::backdrop { background: var(--backdrop); backdrop-filter: blur(6px); 
 .plus li::before { content: "+"; color: var(--pink); }
 
 .board { background-color: #03050E; border: 2px solid #1A2450; }
-.rowgrid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, 1.2fr) 140px; gap: 4px 16px; align-items: baseline; }
+.rowgrid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) 140px; gap: 4px 16px; align-items: baseline; }
 .board-head { padding: 12px 20px; font-size: 11px; color: var(--ink-2); border-bottom: 1px solid #1A2450; }
 .board-row { border-bottom: 1px solid #1A2450; }
 .row { width: 100%; padding: 18px 20px; border: 0; background: none; color: var(--ink); text-align: left; cursor: pointer; transition: background-color .25s; }
