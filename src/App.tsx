@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from 'react'
 import { flushSync } from 'react-dom'
-import { content, EMAIL, LINKS, type Content, type Lang } from './content'
+import { content, EMAIL, LINKS, waLink, type Content, type Lang } from './content'
+import { FaqChat, ChatIcon } from './FaqChat'
 import foto from './assets/foto.webp'
 import cidade from './assets/cidade.webp'
 import retrato from './assets/retrato.webp'
@@ -479,6 +480,7 @@ function Services({ c }: { c: Content }) {
             <ul className="plus">{f.items.map((i) => <li key={i}>{i}</li>)}</ul>
             <div className="row-wrap">
               <a className="btn btn-cyan btn-lg" href={`mailto:${EMAIL}?subject=${encodeURIComponent(`${f.subject} | thiago.dev`)}`}>{f.cta}</a>
+              <a className="btn btn-o btn-lg btn-ico" href={waLink(`${c.waMsg} (${f.tab})`)} target="_blank" rel="noreferrer"><ChatIcon />WhatsApp</a>
             </div>
           </div>
           <button type="button" className="seal" data-z={z} onClick={() => setZ((v) => flip(v))} aria-label={c.seal}>
@@ -673,21 +675,24 @@ export default function App() {
             </div>
             <figure className="art" ref={artRef}>
               <div className="art-host">
-                <div className="art-halo halftone" aria-hidden="true" />
-                <Doodle src={d3} x={-30} y={300} w={193} h={37} d={-6} cls="drift" />
-                <Doodle src={d4} x={452} y={430} w={156} h={39} d={-4} cls="drift b" />
-                <Doodle src={d2} x={150} y={4} w={84} h={30} d={-5} cls="drift" delay={-3} />
-                <button type="button" className="lay art-bust" style={depth(9)} onClick={poke} aria-label={c.illusLabel}>
-                  <span className="boop" data-z={z2}><img className="headimg" src={busto} alt="" /></span>
-                </button>
-                <Doodle src={d0} x={0} y={36} w={124} h={106} d={24} cls="spin" />
-                <Doodle src={d1} x={524} y={10} w={87} h={78} d={20} cls="spin b" />
-                <Doodle src={d5} x={44} y={232} w={36} h={36} d={16} cls="twk" />
-                <Doodle src={d6} x={14} y={470} w={50} h={59} d={30} cls="twk" delay={-1} />
-                <Doodle src={d7} x={560} y={292} w={55} h={67} d={28} cls="twk" delay={-.5} />
-                <Doodle src={d8} x={544} y={520} w={59} h={78} d={32} cls="twk" delay={-1.6} />
-                <Doodle src={d9} x={70} y={572} w={35} h={41} d={26} cls="twk" delay={-2.2} />
-                <div className="bubble bubble-art lay" style={depth(14)} aria-live="polite">
+                <Doodle src={d3} x={-34} y={330} w={193} h={37} d={-6} cls="drift" />
+                <Doodle src={d2} x={150} y={44} w={84} h={30} d={-5} cls="drift" delay={-3} />
+                <div className="art-frame halftone lay" style={depth(4)} aria-hidden="true" />
+                <div className="art-clip lay" style={depth(9)}>
+                  <button type="button" className="art-bust" onClick={poke} aria-label={c.illusLabel}>
+                    <span className="boop" data-z={z2}><img className="bust-img" src={busto} alt="" /></span>
+                  </button>
+                </div>
+                <div className="art-dim lay" style={depth(4)} aria-hidden="true"><span className="dim-tick" /><span className="dim-line" /><span className="dim-tick" /></div>
+                <Doodle src={d4} x={468} y={470} w={156} h={39} d={-4} cls="drift b" />
+                <Doodle src={d0} x={6} y={78} w={124} h={106} d={24} cls="spin" />
+                <Doodle src={d1} x={520} y={40} w={87} h={78} d={20} cls="spin b" />
+                <Doodle src={d5} x={52} y={252} w={36} h={36} d={16} cls="twk" />
+                <Doodle src={d6} x={18} y={470} w={50} h={59} d={30} cls="twk" delay={-1} />
+                <Doodle src={d7} x={566} y={388} w={46} h={56} d={28} cls="twk" delay={-.5} />
+                <Doodle src={d8} x={548} y={548} w={52} h={68} d={32} cls="twk" delay={-1.6} />
+                <Doodle src={d9} x={60} y={590} w={35} h={41} d={26} cls="twk" delay={-2.2} />
+                <div className="bubble bubble-side lay" style={depth(14)} aria-live="polite">
                   <span className="bubble-txt note" data-z={z2}>{c.bubbles[bubble]}</span>
                 </div>
               </div>
@@ -734,7 +739,8 @@ export default function App() {
             </div>
             <p className="muted center maxw-48">{c.contactLine}</p>
             <div className="row-wrap center-row">
-              <a className="btn btn-cyan btn-lg" href={`mailto:${EMAIL}`}>{c.cta2}</a>
+              <a className="btn btn-cyan btn-lg btn-ico" href={waLink(c.waMsg)} target="_blank" rel="noreferrer"><ChatIcon />{c.whatsapp}</a>
+              <a className="btn btn-o btn-lg" href={`mailto:${EMAIL}`}>{c.cta2}</a>
               <button type="button" className="btn btn-o btn-lg" onClick={copyEmail} aria-live="polite">{copied === 'ok' ? c.copied : copied === 'fail' ? c.copyFail : c.copy}</button>
             </div>
             <ul className="pills">
@@ -755,6 +761,7 @@ export default function App() {
         {win === 'exp' && <ExpWin c={c} />}
         {win === 'spec' && <SpecWin c={c} />}
       </Window>
+      <FaqChat c={c} hidden={!!win} />
     </div>
   )
 }

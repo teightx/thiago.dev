@@ -1,6 +1,8 @@
 export type Lang = 'pt' | 'en'
 
 export const EMAIL = 'thiago.santosdev@hotmail.com'
+export const WHATSAPP = '5598989067655'
+export const waLink = (text: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`
 export const LINKS = {
   linkedin: 'https://linkedin.com/in/thiagosantosdev',
   github: 'https://github.com/teightx',
@@ -102,6 +104,29 @@ export const content = {
     ],
     clientsLabel: 'Clientes atendidos',
     clients: CLIENTS,
+    whatsapp: 'Chamar no WhatsApp',
+    waMsg: 'Oi, Thiago! Vim pelo seu site e quero conversar sobre um projeto.',
+    faq: {
+      fab: 'Dúvidas?',
+      title: 'Perguntas frequentes',
+      status: 'respostas rápidas',
+      typing: 'Thiago está digitando',
+      hello: ['Oi! Eu sou o Thiago.', 'Separei aqui as perguntas que mais me fazem. Toque numa delas.'],
+      items: [
+        { q: 'Você faz freela?', a: ['Faço, sim.', 'Projeto fechado, com escopo, prazo e preço combinados antes, ou horas sob demanda para destravar algo pontual.'] },
+        { q: 'Quanto custa um projeto?', a: ['Depende do escopo.', 'Me conta o que você precisa e eu volto com um orçamento fechado, sem surpresa no meio do caminho.'] },
+        { q: 'Quanto tempo leva?', a: ['Depende do tamanho do projeto.', 'O prazo vem junto do orçamento, antes de começar.'] },
+        { q: 'Atende empresas de fora?', a: ['Atendo. Já trabalhei para clientes nos EUA, na Alemanha e na Itália, remoto e em inglês.'] },
+        { q: 'Faz só Salesforce?', a: ['Salesforce é o meu foco: Apex, LWC, Flow, integrações e IA.', 'Mas também faço sites e apps com React, TypeScript, Java e Flutter. O portfólio da Anarte é um exemplo.'] },
+        { q: 'Topa vaga fixa?', a: ['Topo, para vagas remotas em time de produto ou consultoria, no Brasil ou no exterior.'] },
+        { q: 'Como falo com você?', a: ['Pelo WhatsApp, por e-mail ou pelo LinkedIn. Escolhe o que for mais fácil pra você.'] },
+      ],
+      done: 'Ficou alguma dúvida? Me chama que a gente conversa.',
+      more: 'Outras perguntas',
+      restart: 'Recomeçar',
+      direct: 'Falar direto no WhatsApp',
+      close: 'Fechar perguntas',
+    },
     contactTitle: 'Vamos conversar?',
     talk: ['Vamos conversar?', 'Tem um projeto?', 'Manda um oi!'],
     talkLabel: 'Toque no balão para outra frase',
@@ -266,6 +291,29 @@ export const content = {
     ],
     clientsLabel: 'Clients served',
     clients: CLIENTS,
+    whatsapp: 'Message on WhatsApp',
+    waMsg: 'Hi Thiago! I found your website and would like to talk about a project.',
+    faq: {
+      fab: 'Questions?',
+      title: 'Frequently asked',
+      status: 'quick answers',
+      typing: 'Thiago is typing',
+      hello: ['Hi! I’m Thiago.', 'Here are the questions I get the most. Tap one.'],
+      items: [
+        { q: 'Do you freelance?', a: ['I do.', 'Fixed projects, with scope, timeline and price agreed upfront, or on-demand hours to unblock something specific.'] },
+        { q: 'How much does a project cost?', a: ['It depends on the scope.', 'Tell me what you need and I’ll come back with a fixed quote, no surprises along the way.'] },
+        { q: 'How long does it take?', a: ['It depends on the size of the project.', 'The timeline comes with the quote, before we start.'] },
+        { q: 'Do you work with companies abroad?', a: ['Yes. I’ve worked for clients in the US, Germany and Italy, remotely and in English.'] },
+        { q: 'Is it only Salesforce?', a: ['Salesforce is my focus: Apex, LWC, Flow, integrations and AI.', 'But I also build websites and apps with React, TypeScript, Java and Flutter. The Anarte portfolio is one example.'] },
+        { q: 'Open to a full-time role?', a: ['Yes, for remote roles on product or consulting teams, in Brazil or abroad.'] },
+        { q: 'How do I reach you?', a: ['WhatsApp, email or LinkedIn. Whatever is easiest for you.'] },
+      ],
+      done: 'Still have a question? Message me and we’ll talk.',
+      more: 'Other questions',
+      restart: 'Start over',
+      direct: 'Message me on WhatsApp',
+      close: 'Close questions',
+    },
     contactTitle: 'Let’s talk.',
     talk: ['Let’s talk.', 'Got a project?', 'Say hi!'],
     talkLabel: 'Tap the bubble for another line',
